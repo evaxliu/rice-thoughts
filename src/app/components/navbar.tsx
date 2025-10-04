@@ -21,7 +21,7 @@ export default function App() {
   const pathname = usePathname();
 
   return (
-    <Navbar isBordered
+    <Navbar
       classNames={{
         item: [
           "flex",

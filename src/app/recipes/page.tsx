@@ -1,10 +1,10 @@
  
 export default function Recipes() {
   return (
-    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
-      <div className="w-full flex-none">
-        <p>
-          Recipes
+    <div className="flex h-screen items-center justify-items-center">
+      <div className="">
+        <p className="">
+          Recipes [Coming Soon]
         </p>
       </div>
     </div>

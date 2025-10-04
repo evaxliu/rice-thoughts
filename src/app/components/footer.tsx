@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function Footer() {
   return(
     <div className="font-sans items-center justify-items-center">
-      <footer className="row-start-3 flex-wrap items-center justify-center">
+      <footer>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4 pb-5"
           href="https://github.com/evaxliu/kengli-blog"
           target="_blank"
           rel="noopener noreferrer"

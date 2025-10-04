@@ -9,9 +9,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div>
           <title>Kengli Blog</title>
         </div>
-        <div className="min-h-screen flex flex-col justify-between">
+        <div className="flex flex-col h-screen w-screen">
           <NavBar/>
-          <div className="flex-grow">
+          <div className="flex flex-grow flex-row max-w-full max-h-full overflow-auto">
             {children}
           </div>
           <Footer/>
