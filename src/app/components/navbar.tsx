@@ -68,8 +68,8 @@ export const SearchIcon = ({
 export default function NavBar() {
   return (
     <Providers>
-      <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
-        <div className="w-full flex-none md:w-64">
+      <div>
+        <div>
           <Navbar isBordered
           classNames={{
             item: [
