@@ -7,22 +7,7 @@ import {
   NavbarContent,
   NavbarItem
 } from "@heroui/navbar";
-import {
-  Input
-} from "@heroui/input"
-
-// export const AcmeLogo = () => {
-//   return (
-//     <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
-//       <path
-//         clipRule="evenodd"
-//         d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-//         fill="currentColor"
-//         fillRule="evenodd"
-//       />
-//     </svg>
-//   );
-// };
+import { Input } from "@heroui/input"
 
 export const SearchIcon = ({
   size = 24,
@@ -71,35 +56,34 @@ export default function NavBar() {
       <div>
         <div>
           <Navbar isBordered
-          classNames={{
-            item: [
-              "flex",
-              "relative",
-              "h-full",
-              "items-center",
-              "data-[active=true]:after:content-['']",
-              "data-[active=true]:after:absolute",
-              "data-[active=true]:after:bottom-0",
-              "data-[active=true]:after:left-0",
-              "data-[active=true]:after:right-0",
-              "data-[active=true]:after:h-[2px]",
-              "data-[active=true]:after:rounded-[2px]",
-              "data-[active=true]:after:bg-primary",
-            ],
-          }}
+            classNames={{
+              item: [
+                "flex",
+                "relative",
+                "h-full",
+                "items-center",
+                "data-[active=true]:after:content-['']",
+                "data-[active=true]:after:absolute",
+                "data-[active=true]:after:bottom-0",
+                "data-[active=true]:after:left-0",
+                "data-[active=true]:after:right-0",
+                "data-[active=true]:after:h-[2px]",
+                "data-[active=true]:after:rounded-[2px]",
+                "data-[active=true]:after:bg-primary",
+              ],
+            }}
           >
             <NavbarContent justify="start">
               <NavbarBrand>
                 {/* <AcmeLogo /> */}
                 <p className="font-bold text-inherit">
-                  <Link href="/">
-                    Keng&rsquo;s Blog
-                  </Link>
+                  Keng&rsquo;s Blog
                 </p>
               </NavbarBrand>
+
               <NavbarContent className="hidden sm:flex gap-3">
                 <NavbarItem isActive>
-                  <Link aria-current="page" color="secondary" href="/articles">
+                  <Link aria-current="page" color="secondary" href="/">
                     Articles
                   </Link>
                 </NavbarItem>
@@ -114,24 +98,24 @@ export default function NavBar() {
                   </Link>
                 </NavbarItem>
               </NavbarContent>
-          </NavbarContent>
+            </NavbarContent>
 
-          <NavbarContent as="div" className="items-center" justify="end">
-            <Input
-              classNames={{
-                base: "max-w-full sm:max-w-[10rem] h-10",
-                mainWrapper: "h-full",
-                input: "text-small",
-                inputWrapper:
-                  "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-              }}
-              placeholder="Type to search..."
-              size="sm"
-              startContent={<SearchIcon size={18} />}
-              type="search"
-            />
-          </NavbarContent>
-        </Navbar>
+            <NavbarContent as="div" className="items-center" justify="end">
+              <Input
+                classNames={{
+                  base: "max-w-full sm:max-w-[10rem] h-10",
+                  mainWrapper: "h-full",
+                  input: "text-small",
+                  inputWrapper:
+                    "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+                }}
+                placeholder="Type to search..."
+                size="sm"
+                startContent={<SearchIcon size={18} />}
+                type="search"
+              />
+            </NavbarContent>
+          </Navbar>
         </div>
       </div>
     </Providers>
