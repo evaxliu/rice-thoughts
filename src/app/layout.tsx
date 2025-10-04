@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html>
       <body>
         <div>
-          <title>Kengli Blog</title>
+          <title>RiceThoughts Blog</title>
         </div>
         <div className="flex flex-col h-screen w-screen">
           <NavBar/>

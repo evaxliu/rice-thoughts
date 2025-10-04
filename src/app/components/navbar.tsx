@@ -41,7 +41,7 @@ export default function App() {
     >
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
-          <p className="hidden sm:block font-bold text-inherit">Kengli Fu Blog</p>
+          <p className="hidden sm:block font-bold text-inherit">RiceThoughts Blog</p>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-3">
           {navItems.map((item) => (
