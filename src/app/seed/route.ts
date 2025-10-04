@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
 import postgres from 'postgres';
 import { articles } from '../lib/placeholder-data';
 
