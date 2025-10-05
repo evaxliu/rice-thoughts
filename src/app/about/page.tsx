@@ -1,13 +1,10 @@
  
 export default function About() {
   return (
-    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
+    <div className="flex items-center justify-items-center border p-5">
       <div className="w-full flex-none md:w-64">
-        <h1>
-          Hi!
-        </h1>
         <p>
-          My name is Kengli Fu.
+          Just a guy who likes rice and thinks.
         </p>
       </div>
     </div>

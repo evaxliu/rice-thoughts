@@ -1,12 +1,10 @@
  
 export default function Recipes() {
   return (
-    <div className="flex h-screen items-center justify-items-center">
-      <div className="">
+    <div className="flex items-center justify-items-center">
         <p className="">
           Recipes [Coming Soon]
         </p>
-      </div>
     </div>
   );
 }
