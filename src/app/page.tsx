@@ -1,10 +1,9 @@
-import Articles from './components/articles';
+import Posts from '../app/components/article'
 
 export default function Home() {
   return (
     <div>
-      <Articles/>
-      <Articles/>
+      <Posts />
     </div>
   );
 }
