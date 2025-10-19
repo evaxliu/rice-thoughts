@@ -10,6 +10,8 @@ import {
 import { Input } from "@heroui/input"
 import { SearchIcon } from "./search-icon";
 import { usePathname } from "next/navigation";
+import icon from '../../../public/Kengdoru.png';
+import Image from "next/image";
 
 export default function App() {
   const navItems = [
@@ -39,6 +41,11 @@ export default function App() {
         ],
       }}
     >
+      <Image
+        alt="Rice Thoughts Icon"
+        src={icon}
+        className="h-10 w-auto"
+      />
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
           <p className="hidden sm:block font-bold text-inherit">RiceThoughts Blog</p>
