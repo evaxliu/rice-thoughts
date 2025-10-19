@@ -23,6 +23,7 @@ export default function App() {
   const pathname = usePathname();
 
   return (
+    <div>
     <Navbar
       classNames={{
         item: [
@@ -50,7 +51,7 @@ export default function App() {
         <NavbarBrand className="mr-4">
           <p className="hidden sm:block font-bold text-inherit">Rice Thoughts</p>
         </NavbarBrand>
-        <NavbarContent className="hidden sm:flex gap-3">
+        <NavbarContent className="">
           {navItems.map((item) => (
             <NavbarItem key={item.label} isActive={pathname === item.href}>
               <Link aria-current="page" color="secondary" href={item.href}>
@@ -77,5 +78,6 @@ export default function App() {
         />
       </NavbarContent>
     </Navbar>
+    </div>
   );
 }
