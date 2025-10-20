@@ -1,14 +1,12 @@
 "use client";
 import "../ui/globals.css";
 import Link from "next/link";
-import { Input } from "@heroui/input";
-import { SearchIcon } from "./search-icon";
 import { usePathname } from "next/navigation";
 import icon from "../../../public/Kengdoru.png";
 import Image from "next/image";
 import { Url } from "next/dist/shared/lib/router/router";
 import React from "react";
-import { IconButton, Collapse, Navbar } from "@material-tailwind/react";
+import { Navbar, IconButton, Collapse } from "@material-tailwind/react";
 
 export default function App() {
   const navItems = [
@@ -56,7 +54,7 @@ export default function App() {
                 {item.label}
               </Link>
             ))}
-            <Input
+            {/* <Input
               classNames={{
                 base: "max-w-full sm:max-w-[10rem] h-10",
                 mainWrapper: "h-full",
@@ -68,7 +66,7 @@ export default function App() {
               size="sm"
               startContent={<SearchIcon size={18} />}
               type="search"
-            />
+            /> */}
           </div>
         </div>
 
@@ -118,7 +116,7 @@ export default function App() {
                 {item.label}
               </Link>
             ))}
-            <Input
+            {/* <Input
               classNames={{
                 base: "max-w-full sm:max-w-[10rem] h-10",
                 mainWrapper: "h-full",
@@ -130,7 +128,7 @@ export default function App() {
               size="sm"
               startContent={<SearchIcon size={18} />}
               type="search"
-            />
+            /> */}
           </div>
         </div>
       </Collapse>
