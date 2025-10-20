@@ -8,18 +8,18 @@ import { ThemeProvider } from "@material-tailwind/react";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html>
+      <head>
+        <title>Rice Thoughts</title>
+      </head>
       <body>
-        <div>
-          <title>Rice Thoughts</title>
-        </div>
         <div className="flex flex-col h-screen w-screen">
-          <NavBar/>
-          <div className="flex items-center justify-center h-screen">
-            <ThemeProvider>
-              {children}
-            </ThemeProvider>
-          </div>
-          <Footer/>
+          <ThemeProvider>
+            <NavBar/>
+            <div className="flex items-center justify-center h-screen">
+                {children}
+            </div>
+            <Footer/>
+          </ThemeProvider>
         </div>
       </body>
     </html>
