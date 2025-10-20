@@ -1,8 +1,8 @@
 "use client";
 import "../ui/globals.css";
 import Link from "next/link";
-import { Input } from "@heroui/input";
-import { SearchIcon } from "./search-icon";
+// import { Input } from "@heroui/input";
+// import { SearchIcon } from "./search-icon";
 import { usePathname } from "next/navigation";
 import icon from "../../../public/Kengdoru.png";
 import Image from "next/image";
@@ -53,7 +53,7 @@ export default function NavBar() {
               {item.label}
             </Link>
           ))}
-          <Input
+          {/* <Input
             classNames={{
               base: "max-w-full sm:max-w-[10rem] h-10",
               mainWrapper: "h-full",
@@ -65,7 +65,7 @@ export default function NavBar() {
             size="sm"
             startContent={<SearchIcon size={18} />}
             type="search"
-          />
+          /> */}
         </div>
 
         {/* Mobile Toggle */}
@@ -113,7 +113,7 @@ export default function NavBar() {
               {item.label}
             </Link>
           ))}
-          <Input
+          {/* <Input
             classNames={{
               base: "w-full h-10",
               mainWrapper: "h-full",
@@ -125,7 +125,7 @@ export default function NavBar() {
             size="sm"
             startContent={<SearchIcon size={18} />}
             type="search"
-          />
+          /> */}
         </div>
       </Collapse>
     </Navbar>
