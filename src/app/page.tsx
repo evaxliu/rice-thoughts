@@ -2,8 +2,8 @@ import Posts from './components/article-block'
 
 export default function Home() {
   return (
-    <div>
+    <main className="px-6 mx-auto">
       <Posts />
-    </div>
+    </main>
   );
 }
