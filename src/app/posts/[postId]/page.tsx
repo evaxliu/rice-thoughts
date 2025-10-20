@@ -39,8 +39,8 @@ export default async function Post({ params }: { params: Promise<{ postId: strin
 
   return (
     <div>
-      <main className="overflow-y-auto">
-        <div className="block sm:hidden">
+      <main className="">
+        <div className="block sm:hidden overflow-y-scroll">
           {/* Mobile */}
           <h1 className="text-3xl">{title}</h1>
           <p>
@@ -54,6 +54,9 @@ export default async function Post({ params }: { params: Promise<{ postId: strin
               className="prose prose-slate dark:prose-invert text-gray-400 dark:text-white light:text-black text-xl"
               dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
+            <p className="float-right cursor-pointer pt-10 pb-10">
+              <Link href="/">← Back to home</Link>
+            </p>
           </article>
         </div>
 
@@ -71,14 +74,12 @@ export default async function Post({ params }: { params: Promise<{ postId: strin
               className="prose prose-slate dark:prose-invert text-gray-400 dark:text-white light:text-black text-xl"
               dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
+            <p className="float-right cursor-pointer pt-10 pb-10">
+              <Link href="/">← Back to home</Link>
+            </p>
           </article>
         </div>
       </main>
-      
-
-      <p className="float-right cursor-pointer pt-5">
-        <Link href="/">← Back to home</Link>
-      </p>
     </div>
   )
 }
