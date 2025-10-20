@@ -10,7 +10,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@heroui/react": "^2.8.4",
+    "@material-tailwind/react": "^2.1.10",
     "@preline/collapse": "^3.2.3",
     "bcrypt": "^6.0.0",
     "framer-motion": "^12.23.22",
