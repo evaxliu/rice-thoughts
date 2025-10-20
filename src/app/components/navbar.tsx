@@ -7,6 +7,11 @@ import { usePathname } from "next/navigation";
 import icon from '../../../public/Kengdoru.png';
 import Image from "next/image";
 import { Url } from "next/dist/shared/lib/router/router";
+import React from "react";
+import {
+  IconButton,
+  Collapse,
+} from "@material-tailwind/react";
 
 export default function App() {
   const navItems = [
@@ -17,6 +22,15 @@ export default function App() {
 
   const pathname = usePathname();
   const isActive = (path: Url) => pathname === path;
+
+  const [openNav, setOpenNav] = React.useState(false);
+
+  React.useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => window.innerWidth >= 960 && setOpenNav(false),
+    );
+  }, []);
 
   return (
     <div>
@@ -29,15 +43,10 @@ export default function App() {
                 Rice Thoughts
               </span>
             </Link>
-            <div className="sm:hidden">
-              <button type="button" className="hs-collapse-toggle relative size-9 flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 text-white-800 shadow-2xs hover:bg-gray-700 hover:cursor-pointer focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none" id="hs-navbar-example-collapse" aria-expanded="false" aria-controls="hs-navbar-example" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-example">
-                <svg className="hs-collapse-open:hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
-                <svg className="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-                <span className="sr-only">Toggle navigation</span>
-              </button>
-            </div>
           </div>
-          <div id="hs-navbar-example" className="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow sm:block" aria-labelledby="hs-navbar-example-collapse">
+
+          {/* Desktop */}
+          <div className="hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
             <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
               {navItems.map((item) => (
                 <Link key={item.label} aria-current="page" color="secondary" href={item.href} className={`${
@@ -59,6 +68,60 @@ export default function App() {
                 startContent={<SearchIcon size={18} />}
                 type="search"
               />
+            </div>
+
+            {/* Tablet and Mobile */}
+            <div className="block sm:hidden transition-all duration-300 basis-full grow">
+              <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
+                <IconButton
+                  variant="text"
+                  className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                  ripple={false}
+                  onClick={() => setOpenNav(!openNav)}
+                >
+                  {openNav ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      className="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"
+                      />
+                    </svg>
+                  )}
+                </IconButton>
+                <Collapse open={openNav}>
+                  <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
+                    {navItems.map((item) => (
+                      <Link key={item.label} aria-current="page" color="secondary" href={item.href} className={`${
+                        isActive(item.href) ? "text-purple-500" : ""
+                      }`}>
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </Collapse>
+              </div>
             </div>
           </div>
         </nav>
