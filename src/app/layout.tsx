@@ -1,8 +1,15 @@
+"use client";
+
+import { useEffect } from "react";
 import "./ui/globals.css";
 import NavBar from "./components/navbar"
 import Footer from "./components/footer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    // Preline requires dynamic import to initialize client-side
+    import("preline/preline");
+  }, []);
   return (
     <html>
       <body>

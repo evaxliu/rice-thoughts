@@ -10,13 +10,14 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@heroui/navbar": "^2.2.24",
     "@heroui/react": "^2.8.4",
+    "@preline/collapse": "^3.2.3",
     "bcrypt": "^6.0.0",
     "framer-motion": "^12.23.22",
     "gray-matter": "^4.0.3",
     "next": "^15.5.4",
     "postgres": "^3.4.7",
+    "preline": "^3.2.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "remark": "^15.0.1",
