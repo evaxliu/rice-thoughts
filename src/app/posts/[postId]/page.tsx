@@ -1,4 +1,3 @@
-import getFormattedDate from "@/src/lib/getFormattedDate"
 import { getSortedPostsData, getPostData } from "@/src/lib/posts"
 import { notFound } from "next/navigation"
 import Link from "next/link"
@@ -11,7 +10,7 @@ export function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: { postId: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ postId: string }> }) {
   const posts = getSortedPostsData()
   const { postId } = await params
 
@@ -28,7 +27,7 @@ export async function generateMetadata({ params }: { params: { postId: string } 
   }
 }
 
-export default async function Post({ params }: { params: { postId: string } }) {
+export default async function Post({ params }: { params: Promise<{ postId: string }> }) {
   const posts = getSortedPostsData()
   const { postId } = await params
 
@@ -36,28 +35,51 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
   const { title, date, author, contentHtml } = await getPostData(postId)
 
-  const pubDate = getFormattedDate(date)
+  const pubDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(new Date(date))
 
   return (
     <div>
-      <main className="overflow-y-auto">
-        <h1 className="text-3xl mt-4 mb-0">{title}</h1>
-        <p>
-          {author}
-        </p>
-        <p className="mt-0 pb-5">
-          {pubDate}
-        </p>
-        <article className="max-h-[60vh]">
-          <section
-            className="prose prose-slate dark:prose-invert text-gray-400 dark:text-white light:text-black text-xl"
-            dangerouslySetInnerHTML={{ __html: contentHtml }}
-          />
-        </article>
+      <main className="">
+        <div className="block sm:hidden overflow-y-scroll">
+          {/* Mobile */}
+          <h1 className="text-3xl">{title}</h1>
+          <p>
+            {author}
+          </p>
+          <p className="mt-0 pb-5">
+            {pubDate}
+          </p>
+          <article className="max-h-[60vh]">
+            <section
+              className="prose prose-slate dark:prose-invert text-gray-400 dark:text-white light:text-black text-xl"
+              dangerouslySetInnerHTML={{ __html: contentHtml }}
+            />
+            <p className="float-right cursor-pointer pt-10 pb-10">
+              <Link href="/">← Back to home</Link>
+            </p>
+          </article>
+        </div>
+
+        {/* Desktop + Tablets */}
+        <div className="hidden sm:block">
+          <h1 className="text-3xl mt-4 mb-0">{title}</h1>
+          <p>
+            {author}
+          </p>
+          <p className="mt-0 pb-5">
+            {pubDate}
+          </p>
+          <article className="max-h-[60vh]">
+            <section
+              className="prose prose-slate dark:prose-invert text-gray-400 dark:text-white light:text-black text-xl"
+              dangerouslySetInnerHTML={{ __html: contentHtml }}
+            />
+            <p className="float-right cursor-pointer pt-10 pb-10">
+              <Link href="/">← Back to home</Link>
+            </p>
+          </article>
+        </div>
       </main>
-      <p className="float-right cursor-pointer pt-10">
-        <Link href="/">← Back to home</Link>
-      </p>
     </div>
   )
 }
