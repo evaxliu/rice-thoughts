@@ -1,4 +1,4 @@
-import Posts from '../app/components/article'
+import Posts from './components/article-block'
 
 export default function Home() {
   return (
