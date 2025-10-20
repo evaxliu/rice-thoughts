@@ -1,5 +1,5 @@
 ---
-title: 'The White American - Revised'
+title: 'The White American - Revised (In Progress)'
 author: 'Kengli Fu'
 date: '2025-10-17'
 ---
