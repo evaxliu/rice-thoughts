@@ -3,6 +3,7 @@ title: 'The Career Cheat Code Lie'
 author: 'Kengli Fu'
 date: '2025-10-20'
 slug: ''
+description: ''
 ---
 
 Every low-income immigrant asks this about their kids: “What can I do to make it so that life is easier for my kids? They also ask “what’s the easiest and fastest way for my kids to make it in life?” At least, that’s what my mom thought. As I approached college-age, she kept suggesting different majors and careers that she thought would help me get on the golden road of success as soon as possible (mainly so I could build her her dream house and give her money to travel). Most people know the stereotype of Asian parents wanting their kids to become doctors or lawyers for the money. Funnily enough, my parents never wanted that from me as they knew the price for those careers was too costly to afford. 

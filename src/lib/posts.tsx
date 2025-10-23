@@ -25,6 +25,7 @@ export function getSortedPostsData() {
             title: matterResult.data.title,
             date: matterResult.data.date,
             author: matterResult.data.author,
+            description: matterResult.data.description,
             slug: matterResult.data.slug,
         }
 
@@ -53,6 +54,7 @@ export async function getPostData(id: string) {
         title: matterResult.data.title,
         author: matterResult.data.author,
         date: matterResult.data.date,
+        description: matterResult.data.description,
         slug: matterResult.data.slug,
         contentHtml,
     }

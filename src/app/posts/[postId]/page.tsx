@@ -10,7 +10,7 @@ export function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ postId: string }> }) {
+export async function generateMetadata({ params }: { params: {postId: string} }) {
   const posts = getSortedPostsData()
   const { postId } = await params
 
@@ -23,17 +23,18 @@ export async function generateMetadata({ params }: { params: Promise<{ postId: s
   }
 
   return {
-    title: post.title,
+    title: 'Rice Thoughts Blog - ' + post.title,
+    desc: post.description || "Essay on politics and culture."
   }
 }
 
-export default async function Post({ params }: { params: Promise<{ postId: string }> }) {
+export default async function Post({ params }: { params: {postId: string} }) {
   const posts = getSortedPostsData()
   const { postId } = await params
 
   if (!posts.find(post => post.id === postId)) notFound()
 
-  const { title, date, author, contentHtml } = await getPostData(postId)
+  const { title, date, author, description, contentHtml } = await getPostData(postId)
 
   const pubDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(new Date(date))
 
@@ -46,7 +47,7 @@ export default async function Post({ params }: { params: Promise<{ postId: strin
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: title,
-            // description: description,
+            description: description,
             datePublished: date,
             author: {
               "@type": "Person",
