@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllPostMeta } from "@/src/lib/posts";
+import { getPostData } from "@/src/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://ricethoughts.com";
