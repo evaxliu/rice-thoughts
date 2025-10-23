@@ -39,6 +39,23 @@ export default async function Post({ params }: { params: Promise<{ postId: strin
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: title,
+            // description: description,
+            datePublished: date,
+            author: {
+              "@type": "Person",
+              name: author || "Kengli Fu",
+            },
+            mainEntityOfPage: `https://ricethoughts.com/posts/${postId}`,
+          }),
+        }}
+      />
       <div className="flex">
         <p className="float-left cursor-pointer pb-10">
           <Link href="/">← Back to home</Link>
