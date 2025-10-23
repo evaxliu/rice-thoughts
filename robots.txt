@@ -3,7 +3,7 @@
 User-agent: *
 Allow: /
 
-# Block sensitive or low-value pages
+# Block sensitive or backend routes
 Disallow: /admin/
 Disallow: /login/
 Disallow: /register/
@@ -11,16 +11,12 @@ Disallow: /api/
 Disallow: /private/
 Disallow: /internal/
 Disallow: /tmp/
-Disallow: /*?session=
 Disallow: /*?preview=
 
-# Prevent duplicate pagination or tracking params
+# Avoid duplicate parameter URLs
 Disallow: /*?page=
 Disallow: /*?ref=
 Disallow: /*?utm_*
 
-# Crawl-Delay optional (helps server load if needed)
-# Crawl-delay: 5
-
-# Sitemap for improved indexing
+# Sitemap
 Sitemap: https://ricethoughts.com/sitemap.xml
