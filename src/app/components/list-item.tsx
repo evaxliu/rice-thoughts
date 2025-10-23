@@ -9,8 +9,8 @@ export default function ListItem({ post }: Props) {
 
   return (
     <li className="text-xl dark:text-white/90 light:text-black/90">
-      <div className="p-10 m-5 dark:text-white light:text-black flex items-center justify-center border">
-        <div className="w-full flex-none">
+      <main className="p-10 m-5 dark:text-white light:text-black flex items-center justify-center border">
+        <section className="w-full flex-none">
           <h1>
             {title}
           </h1>
@@ -19,8 +19,8 @@ export default function ListItem({ post }: Props) {
           </p>
           <p className="text-sm mt-1">{new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(new Date(date))}</p>
           <Link className="underline dark:hover:text-white light:hover:text-black hover:underline cursor-pointer float-right" href={`/posts/${id}`}>Read More...</Link>
-        </div>
-      </div>
+        </section>
+      </main>
     </li>
   )
 }

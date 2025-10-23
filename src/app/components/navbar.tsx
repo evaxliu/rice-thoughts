@@ -29,19 +29,19 @@ export default function NavBar() {
 
   return (
     <Navbar className="bg-transparent border-transparent sticky top-0 z-50 backdrop-blur-md border-b mx-auto max-w-7xl px-4 py-2 lg:px-8 lg:py-4">
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+      <main className="container mx-auto flex items-center justify-between text-blue-gray-900">
         {/* Logo */}
-        <div className="flex items-center py-1.5">
+        <header className="flex items-center py-1.5">
           <Link className="flex-none" href="/" aria-label="Rice Thoughts">
             <span className="inline-flex items-center gap-x-2 text-xl font-semibold">
               <Image className="w-10" src={icon} alt="Rice Thoughts Logo" />
               Rice Thoughts
             </span>
           </Link>
-        </div>
+        </header>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex flex-row gap-6 items-center">
+        <nav className="hidden md:flex flex-row gap-6 items-center">
           {navItems.map((item) => (
             <Link
               key={item.label}
@@ -51,7 +51,7 @@ export default function NavBar() {
               {item.label}
             </Link>
           ))}
-        </div>
+        </nav>
 
         {/* Mobile Toggle */}
         <IconButton
@@ -83,11 +83,11 @@ export default function NavBar() {
             </svg>
           )}
         </IconButton>
-      </div>
+      </main>
 
       {/* Mobile Nav */}
       <Collapse open={openNav} className="md:hidden">
-        <div className="flex flex-col gap-5 mt-4 px-4 overflow-hidden">
+        <nav className="flex flex-col gap-5 mt-4 px-4 overflow-hidden">
           {navItems.map((item) => (
             <Link
               key={item.label}
@@ -98,7 +98,7 @@ export default function NavBar() {
               {item.label}
             </Link>
           ))}
-        </div>
+        </nav>
       </Collapse>
     </Navbar>
   );
