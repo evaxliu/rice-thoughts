@@ -2,6 +2,7 @@
 title: 'The White American - Revised (In Progress)'
 author: 'Kengli Fu'
 date: '2025-10-17'
+slug: ''
 ---
 
 Years ago, in college, I wrote a mini-thesis on the 2016 election. Specifically, that one of the big reasons that Donald Trump was elected was his populist message to the average white American. That paper discussed the white American’s fear of becoming the minority in many places. They had already lost the majority in many liberal metropolitan cities, but they were starting to lose their demographic majority in smaller states as people from the cities started moving due to rising cost of living, tech jobs on the rise, and just the general fact that America has just so much land. It is now 2025, and much has changed since that thesis in 2018.  
