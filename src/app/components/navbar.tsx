@@ -1,8 +1,6 @@
 "use client";
 import "../ui/globals.css";
 import Link from "next/link";
-// import { Input } from "@heroui/input";
-// import { SearchIcon } from "./search-icon";
 import { usePathname } from "next/navigation";
 import icon from "../../../public/Kengdoru.png";
 import Image from "next/image";
@@ -30,7 +28,7 @@ export default function NavBar() {
   }, []);
 
   return (
-    <Navbar className="bg-transparent border-transparent sticky top-0 z-50 backdrop-blur-md border-b mx-auto max-w-screen-xl px-4 py-2 lg:px-8 lg:py-4">
+    <Navbar className="bg-transparent border-transparent sticky top-0 z-50 backdrop-blur-md border-b mx-auto max-w-7xl px-4 py-2 lg:px-8 lg:py-4">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         {/* Logo */}
         <div className="flex items-center py-1.5">
@@ -53,19 +51,6 @@ export default function NavBar() {
               {item.label}
             </Link>
           ))}
-          {/* <Input
-            classNames={{
-              base: "max-w-full sm:max-w-[10rem] h-10",
-              mainWrapper: "h-full",
-              input: "text-small",
-              inputWrapper:
-                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-            }}
-            placeholder="Type to search..."
-            size="sm"
-            startContent={<SearchIcon size={18} />}
-            type="search"
-          /> */}
         </div>
 
         {/* Mobile Toggle */}
@@ -113,19 +98,6 @@ export default function NavBar() {
               {item.label}
             </Link>
           ))}
-          {/* <Input
-            classNames={{
-              base: "w-full h-10",
-              mainWrapper: "h-full",
-              input: "text-small",
-              inputWrapper:
-                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-            }}
-            placeholder="Type to search..."
-            size="sm"
-            startContent={<SearchIcon size={18} />}
-            type="search"
-          /> */}
         </div>
       </Collapse>
     </Navbar>
