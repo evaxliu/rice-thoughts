@@ -3,7 +3,7 @@ import { getPostData } from "@/src/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://ricethoughts.com";
-  const posts = getAllPostMeta();
+  const posts = getPostData();
 
   return [
     {
@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...posts.map(post => ({
       url: `${base}/post/${post.slug}`,
       lastModified: post.updated || post.date,
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 0.8,
     })),
   ];
