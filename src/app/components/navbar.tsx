@@ -35,7 +35,7 @@ export default function NavBar() {
           <Link className="flex-none" href="/" aria-label="Rice Thoughts">
             <span className="inline-flex items-center gap-x-2 text-xl font-semibold">
               <Image className="w-10" src={icon} alt="Rice Thoughts Logo" />
-              Rice Thoughts
+              Rice Thoughts Blog
             </span>
           </Link>
         </header>

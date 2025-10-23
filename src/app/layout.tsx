@@ -2,7 +2,7 @@ import "./ui/globals.css";
 import ClientLayout from "./client-layout";
 
 export const metadata = {
-  title: "Rice Thoughts",
+  title: "Rice Thoughts Blog",
   description: "A guy who likes rice and thinks.",
 };
 

@@ -8,7 +8,7 @@ export default function About() {
         <Image className="w-50 h-50 rounded-full object-scale-down" src={icon} alt="Rounded avatar of Rice Thoughts"/>
       </section>
       <p>
-        A guy who likes rice and thinks.
+        Blog of a guy who likes rice and thinks.
       </p>
     </main>
   );
