@@ -75,14 +75,7 @@ export default async function Post({ params }: { params: {postId: string} }) {
           <article className="max-h-[60vh]">
             <section
               className="
-                prose
-                prose-neutral
-                dark:prose-invert
-                text-gray-800
-                dark:text-gray-400
-                dark:prose-headings:text-gray-100
-                dark:prose-a:text-blue-400
-                dark:prose-strong:text-gray-200
+                prose-blog
                 text-xl
               "
               dangerouslySetInnerHTML={{ __html: contentHtml }}
@@ -105,14 +98,7 @@ export default async function Post({ params }: { params: {postId: string} }) {
           <article className="max-h-[60vh]">
             <section
               className="
-                prose
-                prose-neutral
-                dark:prose-invert
-                text-gray-800
-                dark:text-gray-400
-                dark:prose-headings:text-gray-100
-                dark:prose-a:text-blue-400
-                dark:prose-strong:text-gray-200
+                prose-blog
                 text-xl
               "
               dangerouslySetInnerHTML={{ __html: contentHtml }}

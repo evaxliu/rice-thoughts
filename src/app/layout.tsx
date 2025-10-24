@@ -16,11 +16,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange> */}
         <body>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             <ClientLayout>{children}</ClientLayout>
+          </ThemeProvider>
         </body>
-      {/* </ThemeProvider> */}
     </html>
   );
 }
