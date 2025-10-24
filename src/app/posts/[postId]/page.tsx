@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: {postId: string} })
 
   return {
     title: 'Rice Thoughts Blog - ' + post.title,
-    desc: post.description || "Essay on politics and culture."
+    desc: post.description || "A prose on food, society and politics."
   }
 }
 
@@ -74,7 +74,17 @@ export default async function Post({ params }: { params: {postId: string} }) {
           </p>
           <article className="max-h-[60vh]">
             <section
-              className="prose prose-slate dark:prose-invert text-gray-400 dark:text-white light:text-black text-xl"
+              className="
+                prose
+                prose-neutral
+                dark:prose-invert
+                text-gray-800
+                dark:text-gray-400
+                dark:prose-headings:text-gray-100
+                dark:prose-a:text-blue-400
+                dark:prose-strong:text-gray-200
+                text-xl
+              "
               dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
             <p className="float-left cursor-pointer pt-10 pb-10">
@@ -94,7 +104,17 @@ export default async function Post({ params }: { params: {postId: string} }) {
           </p>
           <article className="max-h-[60vh]">
             <section
-              className="prose prose-slate dark:prose-invert text-gray-400 dark:text-white light:text-black text-xl"
+              className="
+                prose
+                prose-neutral
+                dark:prose-invert
+                text-gray-800
+                dark:text-gray-400
+                dark:prose-headings:text-gray-100
+                dark:prose-a:text-blue-400
+                dark:prose-strong:text-gray-200
+                text-xl
+              "
               dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
             <p className="float-left cursor-pointer pt-10 pb-10">

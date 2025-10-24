@@ -1,9 +1,10 @@
 import "./ui/globals.css";
 import ClientLayout from "./client-layout";
+import { ThemeProvider } from "next-themes";
 
 export const metadata = {
   title: "Rice Thoughts Blog",
-  description: "A guy who likes rice and thinks. An essay on culture and politics.",
+  description: "A guy who likes rice and thinks. A prose on food, society and politics.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -15,9 +16,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <ClientLayout>{children}</ClientLayout>
-      </body>
+      {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange> */}
+        <body>
+            <ClientLayout>{children}</ClientLayout>
+        </body>
+      {/* </ThemeProvider> */}
     </html>
   );
 }
