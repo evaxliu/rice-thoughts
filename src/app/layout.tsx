@@ -6,8 +6,8 @@ export const metadata = {
   description: "A guy who likes rice and thinks. An essay on culture and politics.",
   icons: {
     icon: [
-      { url: "../../public/favicon.ico" },
-      { url: "../../public/Kengdoru.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico" },
+      { url: "/Kengdoru.png", sizes: "32x32", type: "image/png" },
     ]
   },
 };
