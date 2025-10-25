@@ -10,11 +10,11 @@ export default function About() {
   ];
 
   return (
-    <main className="flex items-center justify-items-center p-10">
+    <main className="">
       <section>
         <ul>
           {featured.map(person => (
-            <section key={person.author} className="flex items-center justify-items-center border p-10">
+            <section key={person.author} className="flex items-center justify-items-center p-5">
               <Image className="w-50 h-50 rounded-full object-scale-down" src={person.image} alt={person.author}/>
               <ListItem person={person} />
             </section>
