@@ -14,8 +14,8 @@ export default function About() {
       <section>
         <ul>
           {featured.map(person => (
-            <section key={person.author} className="flex items-center justify-items-center p-5">
-              <Image className="w-50 h-50 rounded-full object-scale-down" src={person.image} alt={person.author}/>
+            <section key={person.author} className="flex items-center justify-items-center pt-5 pb-5">
+              <Image className="rounded-full object-scale-down" width={200} height={200} src={person.image} alt={person.author}/>
               <ListItem person={person} />
             </section>
           ))}

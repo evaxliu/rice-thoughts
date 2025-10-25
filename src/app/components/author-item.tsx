@@ -9,7 +9,7 @@ export default function ListItem({ person }: Props) {
 
   return (
     <li className="text-xl dark:text-white/90 light:text-black/90">
-      <main className="p-10 m-5 dark:text-white light:text-black flex items-center justify-center">
+      <main className="p-5 m-5 dark:text-white light:text-black flex items-center justify-center">
         <section className="w-full flex-none">
           <h2 className="text-2xl">
             {author} - {title}
