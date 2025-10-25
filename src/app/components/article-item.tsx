@@ -1,3 +1,4 @@
+import { BlogPost } from "@/types"
 import Link from "next/link"
 
 type Props = {

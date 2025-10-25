@@ -6,14 +6,16 @@ import icon from "../../../public/Kengdoru.png";
 import Image from "next/image";
 import React from "react";
 import { IconButton, Collapse, Navbar } from "@material-tailwind/react";
+import { useSession } from "next-auth/react";
 
 export default function NavBar() {
   const navItems = [
     { label: "Articles", href: "/" },
     { label: "Recipes", href: "/recipes" },
     { label: "About", href: "/about" },
-    { label: "Login", href: "/login" },
   ];
+
+  const { data: session } = useSession();
 
   const pathname = usePathname();
   const isActive = (path: string) => pathname === path;
@@ -27,6 +29,24 @@ export default function NavBar() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const UserButton = (
+    session ? (
+      <Link href="/login" className={isActive("/login") ? "text-purple-500" : ""}>
+        <Image
+          className="rounded-full"
+          src={session.user?.image ?? icon}
+          alt="User profile image"
+          width={40}
+          height={40}
+        />
+      </Link>
+    ) : (
+      <Link href="/login" className={isActive("/login") ? "text-purple-500 border rounded-sm p-2" : "border rounded-sm p-2"}>
+        Login
+      </Link>
+    )
+  );
 
   return (
     <Navbar className="bg-transparent border-transparent sticky top-0 z-50 backdrop-blur-md border-b mx-auto max-w-7xl px-4 py-2 lg:px-8 lg:py-4">
@@ -52,7 +72,7 @@ export default function NavBar() {
               {item.label}
             </Link>
           ))}
-
+          {UserButton}
         </nav>
 
         {/* Mobile Toggle */}
@@ -100,6 +120,7 @@ export default function NavBar() {
               {item.label}
             </Link>
           ))}
+          {UserButton}
         </nav>
       </Collapse>
     </Navbar>

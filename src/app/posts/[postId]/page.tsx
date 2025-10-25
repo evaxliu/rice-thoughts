@@ -29,10 +29,9 @@ export async function generateMetadata({ params }: { params: {postId: string} })
 }
 
 export default async function Post({ params }: { params: {postId: string} }) {
-  const posts = getSortedPostsData()
   const { postId } = await params
 
-  if (!posts.find(post => post.id === postId)) notFound()
+  if (!/^[a-zA-Z0-9-_]+$/.test(postId)) notFound()
 
   const { title, date, author, description, contentHtml } = await getPostData(postId)
 

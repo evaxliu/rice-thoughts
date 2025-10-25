@@ -1,33 +1,19 @@
-// "use client"
+import { getSession } from "@/src/server/actions/session";
+import AuthorPage from "../components/author-page";
+import UserPage from "../components/user-page";
+import SignIn from "../components/signin";
 
-// import { useState } from 'react';
-// import axios from 'axios';
+export default async function LoginForm() {
+  const session = await getSession();
+  let Page = <SignIn/>
 
-export default function LoginPage() {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [error, setError] = useState(null);
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const response = await axios.post('/api/auth/login', { email, password });
-//       // Handle successful login
-//     } catch (err) {
-//       setError('Invalid credentials');
-//     }
-//   };
-  
-//   return (
-//     <div>
-//       <h1>Login</h1>
-//       {error && <p>{error}</p>}
-//       <form onSubmit={handleSubmit}>
-//         <label>Email:</label>
-//         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-//         <label>Password:</label>
-//         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-//         <button type="submit">Login</button>
-//       </form>
-//     </div>
-//   );
-}
+  if (session?.user) {
+    Page = session?.user?.email === "ricethoughts.communications@gmail.com"
+      ? <AuthorPage/>
+      : <UserPage name={session?.user?.name ?? ""}/>;
+  }
+
+  return (
+    Page
+  );
+};

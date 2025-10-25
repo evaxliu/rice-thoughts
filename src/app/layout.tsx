@@ -1,6 +1,8 @@
 import "./ui/globals.css";
 import ClientLayout from "./client-layout";
 import { ThemeProvider } from "next-themes";
+import { SessionProvider } from "@/src/providers/session-provider";
+import NavBar from "./components/navbar";
 
 export const metadata = {
   title: "Rice Thoughts Blog",
@@ -38,11 +40,16 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-        <body>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            <ClientLayout>{children}</ClientLayout>
-          </ThemeProvider>
+    <html lang="en" suppressHydrationWarning>
+        <body className="min-h-screen flex flex-col">
+          <SessionProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+              <NavBar />
+              <main className="flex flex-col items-center justify-center min-h-full p-5">
+                <ClientLayout>{children}</ClientLayout>
+              </main>
+            </ThemeProvider>
+          </SessionProvider>
         </body>
     </html>
   );
