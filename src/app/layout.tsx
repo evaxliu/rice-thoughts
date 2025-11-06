@@ -9,7 +9,7 @@ export const metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico" },
-      { url: "/Kengdoru.png", sizes: "32x32", type: "image/png" },
+      { url: "/Kengdoru.png", sizes: "48x48", type: "image/png" },
     ]
   },
     twitter: {
