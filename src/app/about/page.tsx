@@ -5,7 +5,7 @@ import ListItem from "../components/author-info";
 
 export default function About() {
   const featured = [
-    { image: keng, author: "Kengli Fu", title: "Writer", description: "A guy who likes rice and thinks. A prose on food, society and politics." },
+    { image: keng, author: "Kengli Fu", title: "Writer", description: "A guy who likes rice and thinks. An essay on food, society and politics." },
     { image: lilac, author: "LilacPlanet", title: "Developer", description: "Coding" },
   ];
 
