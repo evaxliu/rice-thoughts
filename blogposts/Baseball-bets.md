@@ -1,3 +1,11 @@
+---
+title: 'Please Stop Betting On Baseball'
+author: 'Kengli Fu'
+date: '2026-03-01'
+slug: 'Baseball, betting, gambling, irrational betting, financial advice'
+description: ''
+---
+
 As spring training is now underway, I have a request. 
 Please stop betting on baseball. Please. The game makes no sense. Stop throwing your money away. 
 Stop trying to rationalize the game the way you can with other sports (I’m looking at you, basketball enjoyers). 
