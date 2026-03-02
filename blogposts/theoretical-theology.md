@@ -9,7 +9,8 @@ description: ''
 *Editor Note: This conversation was had at a Waffle House at 3 AM. Blame the sweet tea or something.*
 
 	“Do you need a degree to be a priest?” asked my friend.
-	“No, but you can. A lot of higher-level religious people usually get it to further their religious studies”. I responded. 
+	“No, but you can. A lot of higher-level religious people usually get it to 
+	further their religious studies”. I responded. 
 
 And thus began the dumbest comparison. “Theology is like math, there’s both applied and theoretical parts. 
 #Anyone can do applied math, since it’s just math in the real world. Anyone can apply theology, since that’s what most religious governments do and what individuals do to help make choices in life. 
