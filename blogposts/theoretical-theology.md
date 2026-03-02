@@ -1,8 +1,8 @@
 ---
-title: 'The Career Cheat Code Lie'
+title: 'Dumb and Misguided Explanations: Theoretical Theology'
 author: 'Kengli Fu'
-date: '2025-10-20'
-slug: ''
+date: '2026-03-01'
+slug: 'theoretical theology, theology, waffle house discussions, advanced studies in theoretical fields'
 description: ''
 ---
 
