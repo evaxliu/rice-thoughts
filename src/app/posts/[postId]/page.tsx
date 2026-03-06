@@ -1,3 +1,4 @@
+// Old implementation of the post page. Kept for reference, but not used in the current version of the app.
 import { getSortedPostsData, getPostData } from "@/src/lib/posts"
 import { notFound } from "next/navigation"
 import Link from "next/link"

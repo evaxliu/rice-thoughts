@@ -2,7 +2,7 @@
 title: 'Dumb and Misguided Explanations: Theoretical Theology'
 author: 'Kengli Fu'
 date: '2026-03-01'
-slug: 'theoretical theology, theology, waffle house discussions, advanced studies in theoretical fields'
+slug: ''
 description: ''
 ---
 

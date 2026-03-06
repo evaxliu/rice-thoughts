@@ -1,7 +1,7 @@
 import Image from "next/image";
 import keng from "../../../public/Kengdoru.png";
 import lilac from "../../../public/LilacPlanet.png";
-import ListItem from "../components/author-info";
+import ListItem from "../components/AuthorBlock";
 
 export default function About() {
   const featured = [

@@ -1,3 +1,4 @@
+// Old implementation of the posts data fetching. Kept for reference, but not used in the current version of the app.
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'

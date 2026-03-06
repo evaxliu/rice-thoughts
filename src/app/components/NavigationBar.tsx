@@ -12,7 +12,6 @@ export default function NavBar() {
     { label: "Articles", href: "/" },
     { label: "Recipes", href: "/recipes" },
     { label: "About", href: "/about" },
-    { label: "Login", href: "/login" },
   ];
 
   const pathname = usePathname();

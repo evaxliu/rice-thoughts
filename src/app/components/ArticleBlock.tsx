@@ -1,3 +1,4 @@
+// Old implementation of the article block, used in the home page to list all posts. This is now replaced by the implementation in the page.tsx file, which is more consistent with the rest of the app and allows for better styling and layout.
 import { BlogPost } from "@/types"
 import Link from "next/link"
 

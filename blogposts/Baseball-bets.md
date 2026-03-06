@@ -2,7 +2,7 @@
 title: 'Please Stop Betting On Baseball'
 author: 'Kengli Fu'
 date: '2026-03-01'
-slug: 'Baseball, betting, gambling, irrational betting, financial advice'
+slug: ''
 description: ''
 ---
 

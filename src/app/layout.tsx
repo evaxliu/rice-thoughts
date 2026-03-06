@@ -1,7 +1,7 @@
 import "./ui/globals.css";
 import ClientLayout from "./client-layout";
 import { ThemeProvider } from "next-themes";
-import NavBar from "./components/navbar";
+import NavBar from "./components/NavigationBar";
 
 export const metadata = {
   title: "Rice Thoughts Blog",
