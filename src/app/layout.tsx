@@ -5,7 +5,7 @@ import NavBar from "./components/navbar";
 
 export const metadata = {
   title: "Rice Thoughts Blog",
-  description: "A guy who likes rice and thinks. A prose on food, society and politics.",
+  description: "A guy who likes rice and thinks. An essay on food, society and politics.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -16,14 +16,14 @@ export const metadata = {
     card: "summary_large_image",
     title: "Rice Thoughts Blog",
     description:
-      "A guy who likes rice and thinks. A prose on food, society and politics.",
+      "A guy who likes rice and thinks. An essay on food, society and politics.",
     images: ["https://ricethoughts.com/Kengdoru.png"],
     creator: "@YourHandle",
   },
   openGraph: {
     title: "Rice Thoughts Blog",
     description:
-      "A guy who likes rice and thinks. A prose on food, society and politics.",
+      "A guy who likes rice and thinks. An essay on food, society and politics.",
     url: "https://ricethoughts.com",
     siteName: "Rice Thoughts Blog",
     images: [
