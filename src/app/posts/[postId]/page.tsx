@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: {postId: string} })
 
   return {
     title: 'Rice Thoughts Blog - ' + post.title,
-    desc: post.description || "A prose on food, society and politics."
+    desc: post.description || "An essay on food, society and politics."
   }
 }
 
