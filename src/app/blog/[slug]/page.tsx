@@ -24,7 +24,7 @@ export default async function BlogPost({
         />
         <div className="mt-10 opacity-40 text-sm">
           {tags.map((tag) => (
-            <span>#{tag.name}</span>
+            <span key={tag.id}>#{tag.name}</span>
           ))}
         </div>
         <div className="text-sm opacity-40 mt-4">
