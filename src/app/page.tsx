@@ -1,6 +1,6 @@
 // import Posts from './components/article-block'
 import { wisp } from "@/src/lib/wisp";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
