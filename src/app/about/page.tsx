@@ -6,7 +6,7 @@ import ListItem from "../components/AuthorBlock";
 export default function About() {
   const featured = [
     { image: keng, author: "Kengli Fu", title: "Writer", description: "A guy who likes rice and thinks. An essay on food, society and politics." },
-    { image: lilac, author: "LilacPlanet", title: "Developer", description: "Coding" },
+    { image: lilac, author: "Eva L", title: "Developer", description: "" },
   ];
 
   return (
@@ -15,7 +15,7 @@ export default function About() {
         <ul>
           {featured.map(person => (
             <section key={person.author} className="flex items-center justify-items-center pt-5 pb-5">
-              <Image className="rounded-full object-scale-down" width={200} height={200} src={person.image} alt={person.author}/>
+              <Image className="rounded-full object-scale-down" width={150} height={150} src={person.image} alt={person.author}/>
               <ListItem person={person} />
             </section>
           ))}
