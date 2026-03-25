@@ -11,11 +11,14 @@ export default async function BlogPost({
 }) {
   const result = await wisp.getPost(slug);
   if (!result.post) return null;
-  const { title, publishedAt, createdAt, content, tags } = result.post;
+  const { title, author, publishedAt, createdAt, content, tags } = result.post;
   return (
     <div>
       <div className="prose lg:prose-xl dark:prose-invert mx-auto lg:prose-h1:text-4xl mb-10 lg:mt-20 break-words">
         <h1>{title}</h1>
+        <div className="text-primary text-lg tracking-tighter italic text-muted-foreground">
+          By {author ? author.name : ""}
+        </div>
         <div
           className="blog-content mx-auto"
           dangerouslySetInnerHTML={{
