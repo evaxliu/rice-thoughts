@@ -10,7 +10,7 @@ import { IconButton, Collapse, Navbar } from "@material-tailwind/react";
 export default function NavBar() {
   const navItems = [
     { label: "Articles", href: "/" },
-    { label: "Food Reviews", href: "/recipes" },
+    { label: "Food Reviews", href: "/food-reviews" },
     { label: "About", href: "/about" },
   ];
 
