@@ -30,16 +30,16 @@ export default async function Home() {
                 <h2 className="font-sans font-semibold tracking-tighter text-primary text-2xl md:text-3xl">
                   <Link href={`blog/${post.slug}`}>{post.title}</Link>
                 </h2>
-                <h3 className="text-primary text-lg tracking-tighter">
+                {/* <h3 className="text-primary text-lg tracking-tighter">
                   {post.author ? post.author.name : "Unknown Author"}
-                </h3>
-                <div className="prose lg:prose-lg italic tracking-tighter text-muted-foreground">
+                </h3> */}
+                <div className="italic tracking-tighter text-muted-foreground">
                   {new Date(post.publishedAt || post.createdAt).toLocaleDateString()}
                 </div>
-                <div className="prose lg:prose-lg leading-relaxed md:text-lg line-clamp-4 text-muted-foreground">
+                <div className="leading-relaxed md:text-lg line-clamp-4 text-muted-foreground">
                   {post.description}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="prose lg:prose-lg text-muted-foreground">
                   {post.tags.map((tag) => (
                     <div key={tag.id} className="mr-2 inline-block">
                       #{tag.name}
