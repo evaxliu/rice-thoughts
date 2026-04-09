@@ -2,11 +2,18 @@
 import { wisp } from "@/src/lib/wisp";
 // import Image from "next/image";
 import Link from "next/link";
+import { DropdownMenuCheckboxesIcons } from "./components/Dropdown";
 
 export default async function Home() {
   const result = await wisp.getPosts({ limit: 6 });
+  const { tags } = await wisp.getTags();
+  const tagsSet = new Set<string>();
+  tags.forEach((tag) => {
+    tagsSet.add(tag.name);
+  });
   return (
     <main className="px-6 mx-auto">
+      <DropdownMenuCheckboxesIcons />
       {/* <Posts /> */}
       <section>
         <ul>
@@ -39,9 +46,9 @@ export default async function Home() {
                 <div className="leading-relaxed md:text-lg line-clamp-4 text-muted-foreground">
                   {post.description}
                 </div>
-                <div className="prose lg:prose-lg text-muted-foreground">
+                <div>
                   {post.tags.map((tag) => (
-                    <div key={tag.id} className="mr-2 inline-block">
+                    <div key={tag.id} className="mr-2 inline-block prose text-muted-foreground">
                       #{tag.name}
                     </div>
                   ))}

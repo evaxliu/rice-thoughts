@@ -2,6 +2,10 @@ import "./ui/globals.css";
 import ClientLayout from "./client-layout";
 import { ThemeProvider } from "next-themes";
 import NavBar from "./components/NavigationBar";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata = {
   title: "Rice Thoughts Blog",
@@ -39,7 +43,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
         <body className="min-h-screen flex flex-col">
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
               <NavBar />
