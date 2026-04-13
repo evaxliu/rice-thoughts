@@ -7,13 +7,18 @@ import { DropdownMenuCheckboxesIcons } from "./components/Dropdown";
 export default async function Home() {
   const result = await wisp.getPosts({ limit: 6 });
   const { tags } = await wisp.getTags();
+
   const tagsSet = new Set<string>();
+  var tagNames: string[] = []
+
   tags.forEach((tag) => {
     tagsSet.add(tag.name);
+    tagNames.push(tag.name)
   });
+
   return (
     <main className="px-6 mx-auto">
-      <DropdownMenuCheckboxesIcons />
+      <DropdownMenuCheckboxesIcons tags={tagNames}/>
       {/* <Posts /> */}
       <section>
         <ul>
