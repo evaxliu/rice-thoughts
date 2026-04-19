@@ -29,7 +29,7 @@
 //   }
 // }
 
-// export default async function Post({ params }: { params: {postId: string} }) {
+export default async function Post({ params }: { params: {postId: string} }) {
 //   const posts = getSortedPostsData()
 //   const { postId } = await params
 
@@ -112,4 +112,4 @@
 //       </main>
 //     </div>
 //   )
-// }
+}

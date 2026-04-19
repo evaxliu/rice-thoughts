@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { getSortedPostsData } from "@/src/lib/posts";
+// import { getSortedPostsData } from "@/src/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://ricethoughts.com";
-  const posts = getSortedPostsData();
+  // const posts = getSortedPostsData();
 
   return [
     {
@@ -12,11 +12,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 1,
     },
-    ...posts.map(post => ({
-      url: `${base}/posts/${post.id}`,
-      lastModified: post.date,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    })),
+    // ...posts.map(post => ({
+    //   url: `${base}/posts/${post.id}`,
+    //   lastModified: post.date,
+    //   changeFrequency: 'monthly' as const,
+    //   priority: 0.8,
+    // })),
   ];
 }
