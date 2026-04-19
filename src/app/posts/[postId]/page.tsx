@@ -1,115 +1,115 @@
 // Old implementation of the post page. Kept for reference, but not used in the current version of the app.
-import { getSortedPostsData, getPostData } from "@/src/lib/posts"
-import { notFound } from "next/navigation"
-import Link from "next/link"
+// import { getSortedPostsData, getPostData } from "@/src/lib/posts"
+// import { notFound } from "next/navigation"
+// import Link from "next/link"
 
-export function generateStaticParams() {
-  const posts = getSortedPostsData()
+// export function generateStaticParams() {
+//   const posts = getSortedPostsData()
 
-  return posts.map((post) => ({
-    postId: post.id
-  }))
-}
+//   return posts.map((post) => ({
+//     postId: post.id
+//   }))
+// }
 
-export async function generateMetadata({ params }: { params: {postId: string} }) {
-  const posts = getSortedPostsData()
-  const { postId } = await params
+// export async function generateMetadata({ params }: { params: {postId: string} }) {
+//   const posts = getSortedPostsData()
+//   const { postId } = await params
 
-  const post = posts.find(post => post.id === postId)
+//   const post = posts.find(post => post.id === postId)
 
-  if (!post) {
-    return {
-      title: 'Post Not Found'
-    }
-  }
+//   if (!post) {
+//     return {
+//       title: 'Post Not Found'
+//     }
+//   }
 
-  return {
-    title: 'Rice Thoughts Blog - ' + post.title,
-    desc: post.description || "An essay on food, society and politics."
-  }
-}
+//   return {
+//     title: 'Rice Thoughts Blog - ' + post.title,
+//     desc: post.description || "An essay on food, society and politics."
+//   }
+// }
 
-export default async function Post({ params }: { params: {postId: string} }) {
-  const posts = getSortedPostsData()
-  const { postId } = await params
+// export default async function Post({ params }: { params: {postId: string} }) {
+//   const posts = getSortedPostsData()
+//   const { postId } = await params
 
-  if (!posts.find(post => post.id === postId)) notFound()
+//   if (!posts.find(post => post.id === postId)) notFound()
 
-  const { title, date, author, description, contentHtml } = await getPostData(postId)
+//   const { title, date, author, description, contentHtml } = await getPostData(postId)
 
-  const pubDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(new Date(date))
+//   const pubDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(new Date(date))
 
-  return (
-    <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: title,
-            description: description,
-            datePublished: date,
-            author: {
-              "@type": "Person",
-              name: author || "Kengli Fu",
-            },
-            mainEntityOfPage: `https://ricethoughts.com/posts/${postId}`,
-          }),
-        }}
-      />
-      <div className="flex">
-        <p className="float-left cursor-pointer pb-10">
-          <Link href="/">← Back to home</Link>
-        </p>
-      </div>
-      <main className="">
-        <div className="block sm:hidden overflow-y-scroll">
-          {/* Mobile */}
-          <h1 className="text-3xl">{title}</h1>
-          <p>
-            {author}
-          </p>
-          <p className="mt-0 pb-5">
-            {pubDate}
-          </p>
-          <article className="max-h-[60vh]">
-            <section
-              className="
-                prose-blog
-                text-xl
-              "
-              dangerouslySetInnerHTML={{ __html: contentHtml }}
-            />
-            <p className="float-left cursor-pointer pt-10 pb-10">
-              <Link href="/">← Back to home</Link>
-            </p>
-          </article>
-        </div>
+//   return (
+//     <div>
+//       <script
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{
+//           __html: JSON.stringify({
+//             "@context": "https://schema.org",
+//             "@type": "BlogPosting",
+//             headline: title,
+//             description: description,
+//             datePublished: date,
+//             author: {
+//               "@type": "Person",
+//               name: author || "Kengli Fu",
+//             },
+//             mainEntityOfPage: `https://ricethoughts.com/posts/${postId}`,
+//           }),
+//         }}
+//       />
+//       <div className="flex">
+//         <p className="float-left cursor-pointer pb-10">
+//           <Link href="/">← Back to home</Link>
+//         </p>
+//       </div>
+//       <main className="">
+//         <div className="block sm:hidden overflow-y-scroll">
+//           {/* Mobile */}
+//           <h1 className="text-3xl">{title}</h1>
+//           <p>
+//             {author}
+//           </p>
+//           <p className="mt-0 pb-5">
+//             {pubDate}
+//           </p>
+//           <article className="max-h-[60vh]">
+//             <section
+//               className="
+//                 prose-blog
+//                 text-xl
+//               "
+//               dangerouslySetInnerHTML={{ __html: contentHtml }}
+//             />
+//             <p className="float-left cursor-pointer pt-10 pb-10">
+//               <Link href="/">← Back to home</Link>
+//             </p>
+//           </article>
+//         </div>
 
-        {/* Desktop + Tablets */}
-        <div className="hidden sm:block">
-          <h1 className="text-3xl mt-4 mb-0">{title}</h1>
-          <p>
-            {author}
-          </p>
-          <p className="mt-0 pb-5">
-            {pubDate}
-          </p>
-          <article className="max-h-[60vh]">
-            <section
-              className="
-                prose-blog
-                text-xl
-              "
-              dangerouslySetInnerHTML={{ __html: contentHtml }}
-            />
-            <p className="float-left cursor-pointer pt-10 pb-10">
-              <Link href="/">← Back to home</Link>
-            </p>
-          </article>
-        </div>
-      </main>
-    </div>
-  )
-}
+//         {/* Desktop + Tablets */}
+//         <div className="hidden sm:block">
+//           <h1 className="text-3xl mt-4 mb-0">{title}</h1>
+//           <p>
+//             {author}
+//           </p>
+//           <p className="mt-0 pb-5">
+//             {pubDate}
+//           </p>
+//           <article className="max-h-[60vh]">
+//             <section
+//               className="
+//                 prose-blog
+//                 text-xl
+//               "
+//               dangerouslySetInnerHTML={{ __html: contentHtml }}
+//             />
+//             <p className="float-left cursor-pointer pt-10 pb-10">
+//               <Link href="/">← Back to home</Link>
+//             </p>
+//           </article>
+//         </div>
+//       </main>
+//     </div>
+//   )
+// }
