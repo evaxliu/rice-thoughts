@@ -50,7 +50,7 @@ export default function NavBar() {
             <Link
               key={item.label}
               href={item.href}
-              className={`relative pb-0.5 transition-colors duration-200 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-purple-500 after:transition-all after:duration-200
+              className={`relative pb-0.5 transition-colors duration-200 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-purple-500 after:transition-all after:duration-200
                 ${isActive(item.href)
                   ? "text-purple-500 after:w-full"
                   : "after:w-0 hover:text-purple-400 hover:after:w-full"

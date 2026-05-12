@@ -11,7 +11,7 @@ export default async function Home() {
       <section>
         <ul>
           {result.posts.map((post) => (
-            <div className="break-words" key={post.id}>
+            <div className="wrap-break-word" key={post.id}>
               {/* <Link href={`blog/${post.slug}`}>
                 <div className="aspect-[16/9] relative">
                   {post.image ? (
