@@ -31,11 +31,12 @@ export default function About() {
             >
               <div className="flex items-center gap-6">
                 <Image
-                  className="rounded-full object-scale-down"
+                  className="h-[120px] w-[120px] shrink-0 rounded-full object-contain"
                   width={120}
                   height={120}
                   src={person.image}
                   alt={person.author}
+                  priority
                 />
 
                 <ListItem person={person} />
