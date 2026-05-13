@@ -57,7 +57,7 @@ export const BlogPostContent = ({ post }: { post: GetPostResult["post"] }) => {
   const { title, publishedAt, createdAt, content, tags } = post;
   return (
     <div>
-      <div className="prose prose-neutral lg:prose-xl dark:prose-invert mx-auto max-w-[65ch] leading-[1.8] text-[1.15rem] prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-bold prose-headings:leading-[1.3] prose-p:mb-[1.35rem] prose-a:text-blue-600 dark:prose-a:text-blue-300 prose-a:font-medium prose-a:underline prose-a:underline-offset-[3px] prose-code:bg-gray-200 dark:prose-code:bg-gray-700 prose-code:text-black dark:prose-code:text-white prose-code:px-[0.45em] prose-code:py-[0.25em] prose-code:rounded prose-blockquote:border-l-blue-600 prose-blockquote:text-inherit prose-blockquote:italic mb-10 lg:mt-20 wrap-break-word">
+      <div className="prose prose-neutral lg:prose-xl dark:prose-invert mx-auto max-w-[65ch] leading-[1.8] text-[1.15rem] text-[#d4d4d8] prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-bold prose-headings:leading-[1.3] prose-headings:text-[#f8fafc] prose-p:mb-[1.35rem] prose-p:text-[#d4d4d8] prose-a:text-[#c084fc] prose-a:font-medium prose-a:underline prose-a:underline-offset-[3px] prose-code:bg-[#1f2330] prose-code:text-[#f8fafc] prose-code:px-[0.45em] prose-code:py-[0.25em] prose-code:rounded prose-blockquote:border-l-[#c084fc] prose-blockquote:text-[#d4d4d8] prose-blockquote:italic mb-10 lg:mt-20 wrap-break-word">
         <h1>{title}</h1>
         <PostContent content={content} />
 
@@ -73,9 +73,11 @@ export const BlogPostContent = ({ post }: { post: GetPostResult["post"] }) => {
           ))}
         </div>
         <div className="text-sm opacity-40 mt-4">
-          {Intl.DateTimeFormat("en-US").format(
-            new Date(publishedAt || createdAt)
-          )}
+          {Intl.DateTimeFormat("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }).format(new Date(publishedAt || createdAt))}
         </div>
       </div>
     </div>

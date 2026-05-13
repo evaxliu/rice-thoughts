@@ -5,19 +5,42 @@ import ListItem from "../components/AuthorBlock";
 
 export default function About() {
   const featured = [
-    { image: keng, author: "Kengli Fu", title: "Writer", description: "A guy who likes rice and thinks. An essay on food, society and politics." },
-    { image: lilac, author: "Eva L", title: "Developer", description: "" },
+    {
+      image: keng,
+      author: "Kengli Fu",
+      title: "Writer",
+      description:
+        "A guy who likes rice and thinks. An essay on food, society and politics.",
+    },
+    {
+      image: lilac,
+      author: "Eva L",
+      title: "Developer",
+      description: "",
+    },
   ];
 
   return (
-    <main className="">
+    <main className="mx-auto w-full max-w-5xl px-6">
       <section>
-        <ul>
-          {featured.map(person => (
-            <section key={person.author} className="flex items-center justify-items-center pt-5 pb-5">
-              <Image className="rounded-full object-scale-down" width={150} height={150} src={person.image} alt={person.author}/>
-              <ListItem person={person} />
-            </section>
+        <ul className="space-y-4">
+          {featured.map((person) => (
+            <li
+              key={person.author}
+              className="rounded-xl border border-[#2a2d38] bg-[#14171e] p-6"
+            >
+              <div className="flex items-center gap-6">
+                <Image
+                  className="rounded-full object-scale-down"
+                  width={120}
+                  height={120}
+                  src={person.image}
+                  alt={person.author}
+                />
+
+                <ListItem person={person} />
+              </div>
+            </li>
           ))}
         </ul>
       </section>

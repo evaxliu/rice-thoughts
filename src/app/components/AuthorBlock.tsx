@@ -1,24 +1,23 @@
-import { Feature } from "@/types"
+import { Feature } from "@/types";
 
 type Props = {
-  person: Feature
-}
+  person: Feature;
+};
 
 export default function ListItem({ person }: Props) {
-  const { author, title, description } = person
+  const { author, title, description } = person;
 
   return (
-    <li className="text-xl text-black/90 dark:text-white/90">
-      <main className="p-5 m-5 text-black dark:text-white flex items-center justify-center">
-        <section className="w-full flex-none">
-          <h2 className="text-xl">
-            {author} - {title}
-          </h2>
-          <p className="text-base mt-1">
-            {description}
-          </p>
-        </section>
-      </main>
-    </li>
-  )
+    <div>
+      <h2 className="font-sans text-2xl font-semibold tracking-tight text-[#f8fafc] md:text-3xl">
+        {author} - {title}
+      </h2>
+
+      {description && (
+        <p className="mt-3 leading-relaxed text-[#d4d4d8] md:text-lg">
+          {description}
+        </p>
+      )}
+    </div>
+  );
 }

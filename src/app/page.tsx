@@ -6,48 +6,51 @@ import Link from "next/link";
 export default async function Home() {
   const result = await wisp.getPosts({ limit: 6 });
   return (
-    <main className="px-6 mx-auto">
-      {/* <Posts /> */}
+    <main className="mx-auto w-full max-w-5xl px-6">
       <section>
-        <ul>
+        <ul className="space-y-4">
           {result.posts.map((post) => (
-            <div className="wrap-break-word" key={post.id}>
-              {/* <Link href={`blog/${post.slug}`}>
-                <div className="aspect-[16/9] relative">
-                  {post.image ? (
-                    <Image
-                      alt={post.title}
-                      className="object-cover"
-                      src={post.image}
-                      fill
-                    />
-                  ) : (
-                    <img src="https://placehold.co/600x400" />
-                  )}
-                </div>
-              </Link> */}
-              <div className="grid grid-cols-1 gap-3 md:col-span-2 mt-4">
-                <h2 className="font-sans font-semibold tracking-tighter text-primary text-2xl md:text-3xl">
-                  <Link href={`blog/${post.slug}`}>{post.title}</Link>
-                </h2>
-                {/* <h3 className="text-primary text-lg tracking-tighter">
-                  {post.author ? post.author.name : "Unknown Author"}
-                </h3> */}
-                <div className="italic tracking-tighter text-muted-foreground">
-                  {new Date(post.publishedAt || post.createdAt).toLocaleDateString()}
-                </div>
-                <div className="leading-relaxed md:text-lg line-clamp-4 text-muted-foreground">
-                  {post.description}
-                </div>
-                <div className="prose lg:prose-lg text-muted-foreground">
-                  {post.tags.map((tag) => (
-                    <div key={tag.id} className="mr-2 inline-block">
-                      #{tag.name}
+            <li key={post.id}>
+              <Link
+                href={`blog/${post.slug}`}
+                className="group block wrap-break-word rounded-xl border border-[#2a2d38] bg-[#14171e] p-6 transition-colors hover:border-[#3a3d4a] hover:bg-[#171a22]"
+              >
+                <div className="flex items-start justify-between gap-6">
+                  <div className="grid grid-cols-1 gap-3">
+                    <div className="text-xs font-medium uppercase tracking-wide text-[#a1a1aa]">
+                      {Intl.DateTimeFormat("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      }).format(new Date(post.publishedAt || post.createdAt))}
                     </div>
-                  ))}
+
+                    <h2 className="font-sans text-2xl font-semibold tracking-tight text-[#f8fafc] md:text-3xl">
+                      {post.title}
+                    </h2>
+
+                    <div className="line-clamp-4 leading-relaxed text-[#d4d4d8] md:text-lg">
+                      {post.description}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 pt-2 text-sm">
+                      {post.tags.map((tag) => (
+                        <span
+                          key={tag.id}
+                          className="rounded-md bg-[#2d2444] px-2 py-1 text-[#d8b4fe]"
+                        >
+                          #{tag.name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <span className="mt-1 text-2xl text-[#d4d4d8] transition-transform group-hover:translate-x-1 group-hover:text-white">
+                    →
+                  </span>
                 </div>
-              </div>
-            </div>
+              </Link>
+            </li>
           ))}
         </ul>
       </section>

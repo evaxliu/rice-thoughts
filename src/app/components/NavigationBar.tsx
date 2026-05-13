@@ -27,13 +27,13 @@ export default function NavBar() {
   }, []);
 
   return (
-    <Navbar className="bg-transparent border-transparent sticky top-0 z-50 backdrop-blur-md border-b mx-auto max-w-7xl px-4 py-2 lg:px-8 lg:py-4">
-      <main className="container mx-auto flex items-center justify-between text-blue-gray-900">
+    <Navbar className="sticky top-0 z-50 mx-auto w-full max-w-none rounded-none border-x-0 border-t-0 border-b border-[#252833] bg-[#0f1117] px-4 py-3 shadow-none lg:px-8">
+      <main className="mx-auto flex max-w-6xl items-center justify-between text-[#f4f4f5]">
         
         {/* Logo */}
         <header className="flex items-center py-1.5">
           <Link className="flex-none group" href="/" aria-label="Rice Thoughts">
-            <span className="inline-flex items-center gap-x-2 text-xl font-semibold transition-opacity duration-200 group-hover:opacity-80">
+            <span className="inline-flex items-center gap-x-2 text-lg font-semibold tracking-tight transition-opacity duration-200 group-hover:opacity-80">
               <Image
                 className="w-10 transition-transform duration-200 group-hover:scale-105"
                 src={icon}
@@ -50,9 +50,9 @@ export default function NavBar() {
             <Link
               key={item.label}
               href={item.href}
-              className={`relative pb-0.5 transition-colors duration-200 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-purple-500 after:transition-all after:duration-200
+              className={`relative pb-0.5 transition-colors duration-200 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-purple-400 after:transition-all after:duration-200
                 ${isActive(item.href)
-                  ? "text-purple-500 after:w-full"
+                  ? "text-purple-400 after:w-full"
                   : "after:w-0 hover:text-purple-400 hover:after:w-full"
                 }`}
             >
@@ -88,7 +88,7 @@ export default function NavBar() {
               key={item.label}
               href={item.href}
               className={`transition-colors duration-200 ${
-                isActive(item.href) ? "text-purple-500" : "hover:text-purple-400"
+                isActive(item.href) ? "text-purple-400" : "hover:text-purple-400"
               }`}
               onClick={() => setOpenNav(false)}
             >
