@@ -40,14 +40,14 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-        <body className="min-h-screen flex flex-col">
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-              <NavBar />
-              <main className="flex flex-col items-center justify-center min-h-full p-5">
-                <ClientLayout>{children}</ClientLayout>
-              </main>
-            </ThemeProvider>
-        </body>
+      <body className="min-h-screen flex flex-col bg-white text-neutral-900 dark:bg-[#272727] dark:text-[#ededed] font-sans">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <NavBar />
+          <main className="flex flex-col items-center justify-center min-h-full p-5">
+            <ClientLayout>{children}</ClientLayout>
+          </main>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
