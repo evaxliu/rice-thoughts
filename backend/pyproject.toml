@@ -1,2 +1,2 @@
 [tool.fastapi]
-entrypoint = "src/backend/main.py"
+app = "backend.main:app"
