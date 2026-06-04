@@ -35,6 +35,7 @@ yarn-error.log*
 
 # virtual env
 */venv
+*/.venv
 
 # vercel
 .vercel
