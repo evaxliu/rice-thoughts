@@ -4,7 +4,7 @@ import { wisp } from "@/src/lib/wisp";
 import Link from "next/link";
 
 export default async function Home() {
-  const result = await wisp.getPosts({ limit: 6 });
+  const result = await wisp.getPosts({ limit: "all" });
   return (
     <main className="mx-auto w-full max-w-5xl px-6">
       <section>
