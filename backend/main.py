@@ -11,13 +11,14 @@ key: str = os.environ.get("SUPABASE_SECRET_KEYS")
 supabase: Client = create_client(url, key)
 
 # Grab blog_articles that dont exist in blog_embeddings
-# CREATE OR REPLACE FUNCTION get_orphaned_parent_ids()
-# RETURNS TABLE(id uuid) AS $$
-#   SELECT a.id
-#   FROM blog_articles a
-#   LEFT JOIN blog_embeddings e ON e.id = a.id
-#   WHERE e.id IS NULL;
-# $$ LANGUAGE sql;
+'''
+CREATE OR REPLACE FUNCTION get_orphaned_parent_articles()
+RETURNS TABLE(id uuid, title varchar, subtitle varchar, content varchar, tags text[]) AS $$
+  SELECT id, title, subtitle, content, tags
+  FROM blog_articles
+  WHERE embeddings IS NULL;
+$$ LANGUAGE sql;
+'''
 orphaned_articles_response = supabase.rpc("get_orphaned_parent_articles").execute()
 
 # Voyage AI setup
@@ -26,9 +27,9 @@ vo = voyageai.Client()
 
 # Create and insert embeddings for the orphaned blog_article ids to blog_embeddings
 for row in orphaned_articles_response.data:
-  blog_embeddings = vo.embed(row["title"] + row["subtitle"] + row["content"], model="voyage-4-lite", input_type="document").embeddings
+  blog_articles = vo.embed(row["title"] + row["subtitle"] + row["content"], model="voyage-4-lite", input_type="document").embeddings
   time.sleep(20)
-  insert_response = supabase.table("blog_embeddings").insert({"id": row["id"], "embedding": blog_embeddings[0]}).execute()
+  insert_response = supabase.table("blog_articles").update({"embeddings": blog_articles[0]}).eq("id", row["id"]).execute()
 
 # Get top 3 similar articles to current article
 query = "Insert"
