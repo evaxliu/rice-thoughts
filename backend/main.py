@@ -1,4 +1,4 @@
-# Obtain supabase postgres database info
+# Check supabase/functions.sql for more detail on supabase.rpc functions
 import os
 from supabase import create_client, Client
 from dotenv import load_dotenv
@@ -11,35 +11,32 @@ key: str = os.environ.get("SUPABASE_SECRET_KEYS")
 supabase: Client = create_client(url, key)
 
 # Grab blog_articles that dont exist in blog_embeddings
-'''
-CREATE OR REPLACE FUNCTION get_orphaned_parent_articles()
-RETURNS TABLE(id uuid, title varchar, subtitle varchar, content varchar, tags text[]) AS $$
-  SELECT id, title, subtitle, content, tags
-  FROM blog_articles
-  WHERE embeddings IS NULL;
-$$ LANGUAGE sql;
-'''
 orphaned_articles_response = supabase.rpc("get_orphaned_parent_articles").execute()
 
 # Voyage AI setup
 vo = voyageai.Client()
 # This will automatically use the environment variable VOYAGE_API_KEY.
 
-# Create and insert embeddings for the orphaned blog_article ids to blog_embeddings
+# Create and insert embedding for the orphaned blog_article
 for row in orphaned_articles_response.data:
   blog_articles = vo.embed(row["title"] + row["subtitle"] + row["content"], model="voyage-4-lite", input_type="document").embeddings
   time.sleep(20)
-  insert_response = supabase.table("blog_articles").update({"embeddings": blog_articles[0]}).eq("id", row["id"]).execute()
+  supabase.table("blog_articles").update({"embedding": blog_articles[0]}).eq("id", row["id"]).execute()
 
-# Get top 3 similar articles to current article
-query = "Insert"
-query_embedding = vo.embed([query], model="voyage-4-lite", input_type="query").embeddings[0:2]
-print(query_embedding)
+all_articles_response = supabase.table("blog_articles").select("id, embedding").execute()
 
-# response = supabase.rpc("match_documents", {
-#     "query_embedding": query_embedding,
-#     "match_threshold": 0.7,
-#     "match_count": 5
-# }).execute()
+# Get and insert top 3 similar articles to current article
+for row in all_articles_response.data:
+  # Grab ids of top 3 articles similar to row["id"]
+  top_similar_response = supabase.rpc("match_articles", {
+      "query_embedding": row["embedding"],
+      "match_threshold": 0.5,
+      "current_article_id": row["id"]
+  }).execute()
 
-# print(response.data)
+  # Insert array of top 3 articles to recc_articles col of row["id"]
+  similar_arr = []
+  for id_row in top_similar_response.data:
+    similar_arr.append(id_row["id"])
+  supabase.table("blog_articles").update({"recc_articles": similar_arr}).eq("id", row["id"]).execute()
+  print(similar_arr)
