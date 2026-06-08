@@ -16,6 +16,7 @@ $$ LANGUAGE sql;
 -- =====================
 -- match_articles
 -- =====================
+-- Match articles using cosine distance (<=>)
 DROP FUNCTION IF EXISTS match_articles(vector, float, uuid);
 
 CREATE OR REPLACE FUNCTION match_articles (
