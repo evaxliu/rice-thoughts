@@ -1,18 +1,15 @@
-export default function Recipes() {
+export default function FoodReviews() {
   return (
-    <main className="mx-auto w-full max-w-5xl px-6">
-      <section className="rounded-xl border border-[#2a2d38] bg-[#14171e] p-6">
-        <div className="flex items-start justify-between gap-6">
-          <div className="grid grid-cols-1 gap-3">
-            <h1 className="font-sans text-2xl font-semibold tracking-tight text-[#f8fafc] md:text-3xl">
-              Food Reviews
-            </h1>
+    <main className="mx-auto w-full max-w-3xl px-6">
+      <section className="pt-10">
+        <h1 className="mb-6 text-2xl font-medium tracking-tight text-[#111827] dark:text-[#f8fafc]">
+          Food Reviews
+        </h1>
 
-            <p className="leading-relaxed text-[#d4d4d8] md:text-lg">
-              Coming soon.
-            </p>
-          </div>
-        </div>
+        <p className="max-w-2xl text-base leading-7 text-[#4b5563] dark:text-[#94a3b8]">
+          Coming soon. This section will feature thoughts on food, restaurants,
+          and dining experiences.
+        </p>
       </section>
     </main>
   );

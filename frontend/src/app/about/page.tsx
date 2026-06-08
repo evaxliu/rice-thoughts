@@ -1,7 +1,6 @@
 import Image from "next/image";
 import keng from "../../../public/Kengdoru.png";
 import lilac from "../../../public/LilacPlanet.png";
-import ListItem from "../components/AuthorBlock";
 
 export default function About() {
   const featured = [
@@ -21,25 +20,38 @@ export default function About() {
   ];
 
   return (
-    <main className="mx-auto w-full max-w-5xl px-6">
-      <section>
-        <ul className="space-y-4">
+    <main className="mx-auto w-full max-w-3xl px-6">
+      <section className="pt-10">
+        <ul className="space-y-8">
           {featured.map((person) => (
-            <li
-              key={person.author}
-              className="rounded-xl border border-[#2a2d38] bg-[#14171e] p-6"
-            >
+            <li key={person.author}>
               <div className="flex items-center gap-6">
                 <Image
-                  className="h-[120px] w-[120px] shrink-0 rounded-full object-contain"
-                  width={120}
-                  height={120}
+                  className="h-20 w-20 shrink-0 rounded-full object-cover"
+                  width={80}
+                  height={80}
                   src={person.image}
                   alt={person.author}
                   priority
                 />
 
-                <ListItem person={person} />
+                <div>
+                  <h2 className="text-lg font-medium text-[#111827] dark:text-[#f8fafc]">
+                    {person.author}
+                  </h2>
+
+                  {person.title && (
+                    <p className="mt-1 text-base text-[#64748b] dark:text-[#94a3b8]">
+                      {person.title}
+                    </p>
+                  )}
+
+                  {person.description && (
+                    <p className="mt-1 max-w-2xl text-base leading-7 text-[#4b5563] dark:text-[#94a3b8]">
+                      {person.description}
+                    </p>
+                  )}
+                </div>
               </div>
             </li>
           ))}

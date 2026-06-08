@@ -54,32 +54,60 @@ export const PostContent = ({ content }: { content: string }) => {
 
 export const BlogPostContent = ({ post }: { post: GetPostResult["post"] }) => {
   if (!post) return null;
-  const { title, publishedAt, createdAt, content, tags } = post;
-  return (
-    <div>
-      <div className="prose prose-neutral lg:prose-xl dark:prose-invert mx-auto max-w-[65ch] leading-[1.8] text-[1.15rem] text-[#d4d4d8] prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-bold prose-headings:leading-[1.3] prose-headings:text-[#f8fafc] prose-p:mb-[1.35rem] prose-p:text-[#d4d4d8] prose-a:text-[#c084fc] prose-a:font-medium prose-a:underline prose-a:underline-offset-[3px] prose-code:bg-[#1f2330] prose-code:text-[#f8fafc] prose-code:px-[0.45em] prose-code:py-[0.25em] prose-code:rounded prose-blockquote:border-l-[#c084fc] prose-blockquote:text-[#d4d4d8] prose-blockquote:italic mb-10 lg:mt-20 wrap-break-word">
-        <h1>{title}</h1>
-        <PostContent content={content} />
 
-        <div className="mt-10 opacity-40 text-sm">
-          {tags.map((tag) => (
-            <Link
-              key={tag.id}
-              href={`/tag/${tag.name}`}
-              className="text-primary mr-2"
-            >
-              #{tag.name}
-            </Link>
-          ))}
-        </div>
-        <div className="text-sm opacity-40 mt-4">
+  const { title, publishedAt, createdAt, content, tags } = post;
+
+  return (
+    <article className="mx-auto w-full max-w-3xl px-6 pt-10 pb-20">
+      <Link
+        href="/"
+        className="mb-8 inline-block text-base text-[#64748b] hover:text-[#111827] dark:text-[#94a3b8] dark:hover:text-white"
+      >
+        ← Back to all posts
+      </Link>
+
+      <div className="mb-4 flex items-center gap-2 text-sm">
+        {/* <span className="font-medium uppercase text-[#2563eb]">
+          {tags[0]?.name}
+        </span>
+        <span className="text-[#94a3b8]">•</span> */}
+        <span className="text-[#64748b] dark:text-[#94a3b8]">
           {Intl.DateTimeFormat("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric",
           }).format(new Date(publishedAt || createdAt))}
-        </div>
+        </span>
       </div>
-    </div>
+
+      <h1 className="mb-5 text-3xl font-medium tracking-tight text-[#111827] dark:text-[#f8fafc]">
+        {title}
+      </h1>
+
+      <div className="mb-8 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <Link
+            key={tag.id}
+            href={`/tag/${tag.name}`}
+            className="rounded bg-[#f3f4f6] px-2.5 py-1 text-sm text-[#64748b] no-underline dark:bg-[#1e293b] dark:text-[#cbd5e1]"
+          >
+            {tag.name}
+          </Link>
+        ))}
+      </div>
+
+      <div className="prose prose-neutral max-w-none text-base leading-7 text-[#374151] dark:prose-invert dark:text-[#cbd5e1] prose-p:text-[#374151] dark:prose-p:text-[#cbd5e1] prose-a:text-[#2563eb] dark:prose-a:text-[#93c5fd] prose-headings:text-[#111827] dark:prose-headings:text-[#f8fafc] prose-blockquote:border-l-[#94a3b8] prose-code:bg-[#f3f4f6] prose-code:px-1.5 prose-code:py-1 prose-code:rounded dark:prose-code:bg-[#1e293b]">
+        <PostContent content={content} />
+      </div>
+
+      <div className="mt-16 border-t border-[#e5e7eb] pt-8 dark:border-[#1f2937]">
+        <Link
+          href="/"
+          className="inline-block text-base text-[#64748b] hover:text-[#111827] dark:text-[#94a3b8] dark:hover:text-white"
+        >
+          ← Back to all posts
+        </Link>
+      </div>
+    </article>
   );
 };
