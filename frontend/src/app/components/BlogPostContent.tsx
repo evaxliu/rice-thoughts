@@ -76,7 +76,7 @@ export const BlogPostContent = (props: { post: GetPostResult["post"]; slug: stri
     }, [slug]);
 
   if (!post) return null;
-  const { title, publishedAt, createdAt, content, tags } = post;
+  const { title, content, tags } = post;
 
   return (
     <div>
@@ -88,7 +88,7 @@ export const BlogPostContent = (props: { post: GetPostResult["post"]; slug: stri
             year: "numeric",
             month: "long",
             day: "numeric",
-          }).format(new Date(publishedAt || createdAt))}
+          }).format(new Date(post.publishedAt || post.createdAt))}
         </div>
         
         <div className="text-sm mt-4">
