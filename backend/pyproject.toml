@@ -1,0 +1,2 @@
+[tool.fastapi]
+app = "backend.main:app"
