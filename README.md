@@ -1,4 +1,5 @@
-# Rice Thoughts 🍚
+# Rice Thoughts <img width="612" height="544" alt="rice" src="https://github.com/user-attachments/assets/955627d6-7186-438e-944f-1132eba81e39" />
+
 
 *A guy who likes rice and thinks.*
 
