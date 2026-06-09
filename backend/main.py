@@ -4,13 +4,16 @@ from supabase import create_client, Client
 from dotenv import load_dotenv
 import voyageai
 import time
+from fastapi import FastAPI
+
+app = FastAPI()
 
 load_dotenv()
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_SECRET_KEYS")
 supabase: Client = create_client(url, key)
 
-# Grab blog_articles that dont exist in blog_embeddings
+# Grab blog_articles that dont have embeddings
 orphaned_articles_response = supabase.rpc("get_orphaned_parent_articles").execute()
 
 # Voyage AI setup
@@ -40,3 +43,11 @@ for row in all_articles_response.data:
     similar_arr.append(id_row["id"])
   supabase.table("blog_articles").update({"recc_articles": similar_arr}).eq("id", row["id"]).execute()
   print(similar_arr)
+
+@app.get("/")
+def read_root():
+    return {"message": "FastAPI backend is running"}
+
+@app.get("/articles")
+def get_articles():
+    return supabase.table("blog_articles").select("*").execute()
