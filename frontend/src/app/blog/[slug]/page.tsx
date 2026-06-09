@@ -7,11 +7,13 @@ interface Params {
 }
 
 export default async function BlogPost({
-  params: { slug },
+  params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }) {
+  const { slug } = await params;
+
   const result = await wisp.getPost(slug);
 
-  return <BlogPostContent post={result.post} />;
+  return <BlogPostContent post={result.post} slug={slug} />;
 }

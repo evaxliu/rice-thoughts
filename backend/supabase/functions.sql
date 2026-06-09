@@ -17,18 +17,17 @@ $$ LANGUAGE sql;
 -- match_articles
 -- =====================
 -- Match articles using cosine distance (<=>)
-DROP FUNCTION IF EXISTS match_articles(vector, float, uuid);
-
+DROP FUNCTION match_articles;
 CREATE OR REPLACE FUNCTION match_articles (
   query_embedding vector(1024),
   match_threshold float,
   current_article_id uuid
 )
-RETURNS TABLE(id uuid) AS $$
-  SELECT id
+
+RETURNS TABLE(id uuid, slug varchar, title varchar) AS $$
+  SELECT id, slug, title
   FROM blog_articles
-  WHERE blog_articles.id != current_article_id
-    AND (blog_articles.embedding <=> query_embedding) < (1 - match_threshold)
-  ORDER BY blog_articles.embedding <=> query_embedding ASC
+  WHERE (blog_articles.id != current_article_id) and ((blog_articles.embedding <=> query_embedding) < (1 - match_threshold))
+  ORDER by blog_articles.embedding <=> query_embedding ASC
   LIMIT 3;
 $$ LANGUAGE sql;
