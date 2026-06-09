@@ -91,15 +91,14 @@ export const BlogPostContent = (props: { post: GetPostResult["post"]; slug: stri
           }).format(new Date(publishedAt || createdAt))}
         </div>
         
-        <div className="text-sm opacity-40 mt-4">
+        <div className="text-sm mt-4">
           {tags.map((tag) => (
-            <Link
+            <span
               key={tag.id}
-              href={`/tag/${tag.name}`}
-              className="text-primary mr-2"
+              className="rounded-md bg-[#2d2444] px-2 py-1 text-[#d8b4fe] mr-2"
             >
               #{tag.name}
-            </Link>
+            </span>
           ))}
         </div>
         
