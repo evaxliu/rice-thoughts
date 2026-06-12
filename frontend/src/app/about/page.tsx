@@ -1,7 +1,6 @@
 import Image from "next/image";
 import keng from "../../../public/Kengdoru.png";
 import lilac from "../../../public/LilacPlanet.png";
-import ListItem from "../components/AuthorBlock";
 
 export default function About() {
   const featured = [
@@ -27,11 +26,11 @@ export default function About() {
           {featured.map((person) => (
             <li
               key={person.author}
-              className="rounded-xl border border-[#2a2d38] bg-[#14171e] p-6"
+              className="border-b p-6"
             >
               <div className="flex items-center gap-6">
                 <Image
-                  className="h-[120px] w-[120px] shrink-0 rounded-full object-contain"
+                  className="h-30 w-30 shrink-0 rounded-full object-contain"
                   width={120}
                   height={120}
                   src={person.image}
@@ -39,7 +38,17 @@ export default function About() {
                   priority
                 />
 
-                <ListItem person={person} />
+                <div>
+                  <h2 className="font-sans text-2xl font-semibold tracking-tight text-[#f8fafc] md:text-3xl">
+                    {person.author} - {person.title}
+                  </h2>
+
+                  {person.description && (
+                    <p className="mt-3 leading-relaxed text-[#d4d4d8] md:text-lg">
+                      {person.description}
+                    </p>
+                  )}
+                </div>
               </div>
             </li>
           ))}

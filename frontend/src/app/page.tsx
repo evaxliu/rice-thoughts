@@ -13,7 +13,7 @@ export default async function Home() {
             <li key={post.id}>
               <Link
                 href={`blog/${post.slug}`}
-                className="group block wrap-break-word rounded-xl border border-[#2a2d38] bg-[#14171e] p-6 transition-colors hover:border-[#3a3d4a] hover:bg-[#171a22]"
+                className="group block wrap-break-word border-b p-6"
               >
                 <div className="flex items-start justify-between gap-6">
                   <div className="grid grid-cols-1 gap-3">
