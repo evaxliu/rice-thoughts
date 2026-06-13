@@ -8,12 +8,12 @@ export default async function Home() {
   return (
     <main className="mx-auto w-full max-w-5xl px-6">
       <section>
-        <ul className="space-y-4">
+        <ul className="space-y-4 mx-auto max-w-[65ch] leading-[1.8] text-[1.15rem]">
           {result.posts.map((post) => (
             <li key={post.id}>
               <Link
                 href={`blog/${post.slug}`}
-                className="group block wrap-break-word border-b p-6"
+                className="group block wrap-break-word p-6"
               >
                 <div className="flex items-start justify-between gap-6">
                   <div className="grid grid-cols-1 gap-3">

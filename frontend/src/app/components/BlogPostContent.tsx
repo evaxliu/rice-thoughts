@@ -80,7 +80,7 @@ export const BlogPostContent = (props: { post: GetPostResult["post"]; slug: stri
 
   return (
     <div>
-      <div className="prose prose-neutral lg:prose-xl dark:prose-invert mx-auto max-w-[65ch] leading-[1.8] text-[1.15rem] text-[#d4d4d8] prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-bold prose-headings:leading-[1.3] prose-headings:text-[#f8fafc] prose-p:mb-[1.35rem] prose-p:text-[#d4d4d8] prose-a:text-[#c084fc] prose-a:font-medium prose-a:underline prose-a:underline-offset-[3px] prose-code:bg-[#1f2330] prose-code:text-[#f8fafc] prose-code:px-[0.45em] prose-code:py-[0.25em] prose-code:rounded prose-blockquote:border-l-[#c084fc] prose-blockquote:text-[#d4d4d8] prose-blockquote:italic mb-10 lg:mt-20 wrap-break-word">
+      <div className="mx-auto max-w-[65ch] prose prose-neutral lg:prose-xl dark:prose-invert leading-[1.8] text-[1.15rem] text-[#d4d4d8] prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-bold prose-headings:leading-[1.3] prose-headings:text-[#f8fafc] prose-p:mb-[1.35rem] prose-p:text-[#d4d4d8] prose-a:text-[#c084fc] prose-a:font-medium prose-a:underline prose-a:underline-offset-[3px] prose-code:bg-[#1f2330] prose-code:text-[#f8fafc] prose-code:px-[0.45em] prose-code:py-[0.25em] prose-code:rounded prose-blockquote:border-l-[#c084fc] prose-blockquote:text-[#d4d4d8] prose-blockquote:italic mb-10 wrap-break-word">
         <h1>{title}</h1>
 
         <div className="text-sm opacity-40 mt-4">
