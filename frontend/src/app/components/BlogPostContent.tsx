@@ -97,7 +97,7 @@ export const BlogPostContent = (props: { post: GetPostResult["post"]; slug: stri
               key={tag.id}
               className="rounded-md bg-[#2d2444] px-2 py-1 text-[#d8b4fe] mr-2"
             >
-              #{tag.name}
+              {tag.name}
             </span>
           ))}
         </div>
