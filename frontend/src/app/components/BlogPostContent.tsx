@@ -73,7 +73,7 @@ export const BlogPostContent = (props: { post: GetPostResult["post"]; slug: stri
       .then((response) => response.json())
       .then((data) => setRecs(data[0]?.rec_articles ?? []))
       .catch((error) => console.error("Error fetching recommendations:", error));
-    }, [slug]);
+  }, [slug]);
 
   if (!post) return null;
   const { title, content, tags } = post;
