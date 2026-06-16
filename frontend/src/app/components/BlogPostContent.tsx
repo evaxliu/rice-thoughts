@@ -68,8 +68,8 @@ export const BlogPostContent = (props: { post: GetPostResult["post"]; slug: stri
   useEffect(() => {
     if (!slug) return;
     
-    // fetch(`https://rice-thoughts-production.up.railway.app/recs?slug=${slug}`)
-    fetch(`http://127.0.0.1:8000/recs?slug=${slug}`)
+    fetch(`https://rice-thoughts-production.up.railway.app/recs?slug=${slug}`)
+    // fetch(`http://127.0.0.1:8000/recs?slug=${slug}`)
       .then((response) => response.json())
       .then((data) => setRecs(data.recommendations ?? []))
       .catch((error) => console.error("Error fetching recommendations:", error));
