@@ -71,9 +71,9 @@ export const BlogPostContent = (props: { post: GetPostResult["post"]; slug: stri
     fetch(`https://rice-thoughts-production.up.railway.app/recs?slug=${slug}`)
     // fetch(`http://127.0.0.1:8000/recs?slug=${slug}`)
       .then((response) => response.json())
-      .then((data) => setRecs(data[0]?.rec_articles ?? []))
+      .then((data) => setRecs(data.recommendations ?? []))
       .catch((error) => console.error("Error fetching recommendations:", error));
-    }, [slug]);
+  }, [slug]);
 
   if (!post) return null;
   const { title, content, tags } = post;
