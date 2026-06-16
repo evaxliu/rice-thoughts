@@ -65,7 +65,7 @@ export default function NavBar() {
                 <Moon width="30px" height="30px" />
               )}
             </button>
-            <button className="ml-1 px-3 md:px-4 py-1.5 text-xs md:text-sm bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-100 transition-colors rounded-sm whitespace-nowrap">
+            <button className="select-none ml-1 px-3 md:px-4 py-1.5 text-xs md:text-sm bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-100 transition-colors rounded-sm whitespace-nowrap">
               Log In
             </button>
           </div>
