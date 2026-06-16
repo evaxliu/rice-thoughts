@@ -18,17 +18,17 @@ export default async function Home() {
             >
               <div className="flex items-start justify-between gap-6">
                 <div className="grid grid-cols-1 gap-3">
-                  <div className="text-xs font-medium uppercase tracking-wide text-[#a1a1aa]">
+                  <div className="text-xs font-medium uppercase tracking-wide text-gray-700 dark:text-gray-300">
                     {Intl.DateTimeFormat("en-US", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",
                     }).format(new Date(post.publishedAt || post.createdAt))}
                   </div>
-                  <h2 className="font-sans text-2xl font-semibold tracking-tight text-[#f8fafc] md:text-3xl">
+                  <h2 className="font-sans text-2xl font-semibold tracking-tight text-black dark:text-[#f8fafc] md:text-3xl">
                     {post.title}
                   </h2>
-                  <div className="line-clamp-4 leading-relaxed text-[#d4d4d8] md:text-lg">
+                  <div className="line-clamp-4 leading-relaxed text-gray-600 dark:text-gray-400 md:text-lg">
                     {post.description}
                   </div>
                   <div className="flex flex-wrap gap-2 pt-2 text-sm">
@@ -43,7 +43,7 @@ export default async function Home() {
                   </div>
                 </div>
 
-                <span className="mt-1 text-2xl text-[#d4d4d8] transition-transform group-hover:translate-x-1 group-hover:text-white">
+                <span className="mt-1 text-2xl transition-transform group-hover:translate-x-1 text-gray-900 dark:text-gray-300 group-hover:text-gray-600 dark:group-hover:text-gray-400">
                   →
                 </span>
               </div>

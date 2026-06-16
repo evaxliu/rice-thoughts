@@ -8,10 +8,10 @@ export default async function Recipes() {
       <div className="group block wrap-break-word py-6">
         <div className="flex items-start justify-between gap-6">
           <div className="grid grid-cols-1 gap-3">
-            <h2 className="font-sans text-2xl font-semibold tracking-tight text-[#f8fafc] md:text-3xl">
+            <h2 className="font-sans text-2xl font-semibold tracking-tight text-black dark:text-[#f8fafc] md:text-3xl">
               Food Reviews
             </h2>
-            <div className="line-clamp-4 leading-relaxed text-[#d4d4d8] md:text-lg">
+            <div className="line-clamp-4 leading-relaxed text-black dark:text-[#f8fafc] md:text-lg">
               Coming Soon.
             </div>
           </div>

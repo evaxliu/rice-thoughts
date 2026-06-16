@@ -38,12 +38,12 @@ export default function About() {
               />
 
               <div>
-                <h2 className="font-sans text-2xl font-semibold tracking-tight text-[#f8fafc] md:text-3xl">
+                <h2 className="font-sans text-2xl font-semibold tracking-tight text-black dark:text-[#f8fafc] md:text-3xl">
                   {person.author} - {person.title}
                 </h2>
 
                 {person.description && (
-                  <p className="mt-3 leading-relaxed text-[#d4d4d8] md:text-lg">
+                  <p className="mt-3 leading-relaxed text-black dark:text-[#f8fafc] md:text-lg">
                     {person.description}
                   </p>
                 )}
