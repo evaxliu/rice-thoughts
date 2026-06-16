@@ -81,7 +81,7 @@ export const BlogPostContent = (props: { post: GetPostResult["post"]; slug: stri
   return (
     <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
       <div className="
-        prose prose-neutral lg:prose-xl dark:prose-invert
+        prose-neutral lg:prose-xl dark:prose-invert
         leading-[1.8] text-[1.15rem]
         text-gray-700 dark:text-gray-300
         prose-h1:text-3xl lg:prose-h1:text-3xl
