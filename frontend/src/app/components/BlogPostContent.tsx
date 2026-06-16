@@ -68,10 +68,10 @@ export const BlogPostContent = (props: { post: GetPostResult["post"]; slug: stri
   useEffect(() => {
     if (!slug) return;
     
-    fetch(`https://rice-thoughts-production.up.railway.app/recs?slug=${slug}`)
-    // fetch(`http://127.0.0.1:8000/recs?slug=${slug}`)
+    // fetch(`https://rice-thoughts-production.up.railway.app/recs?slug=${slug}`)
+    fetch(`http://127.0.0.1:8000/recs?slug=${slug}`)
       .then((response) => response.json())
-      .then((data) => setRecs(data[0]?.rec_articles ?? []))
+      .then((data) => setRecs(data.recommendations ?? []))
       .catch((error) => console.error("Error fetching recommendations:", error));
   }, [slug]);
 
@@ -97,7 +97,7 @@ export const BlogPostContent = (props: { post: GetPostResult["post"]; slug: stri
               key={tag.id}
               className="rounded-md bg-[#2d2444] px-2 py-1 text-[#d8b4fe] mr-2"
             >
-              #{tag.name}
+              {tag.name}
             </span>
           ))}
         </div>

@@ -41,7 +41,7 @@ export default async function Home() {
                           key={tag.id}
                           className="rounded-md bg-[#2d2444] px-2 py-1 text-[#d8b4fe]"
                         >
-                          #{tag.name}
+                          {tag.name}
                         </span>
                       ))}
                     </div>
