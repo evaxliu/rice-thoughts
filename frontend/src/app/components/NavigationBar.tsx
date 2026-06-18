@@ -51,7 +51,7 @@ export default function NavBar() {
           <Link
             href={"/"}
           >
-            <h1 className="text-xl md:text-3xl tracking-tight dark:text-white">
+            <h1 className="select-none text-xl md:text-3xl tracking-tight dark:text-white">
               Rice Thoughts Blog
             </h1>
           </Link>
@@ -81,7 +81,7 @@ export default function NavBar() {
                     {
                       'text-purple-400': pathname === tab.href,
                     },
-                    'hover:text-purple-400 transition-colors whitespace-nowrap',
+                    'hover:text-purple-400 transition-colors whitespace-nowrap select-none',
                   )}
                 >
                   <p>
