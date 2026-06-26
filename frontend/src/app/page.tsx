@@ -14,7 +14,7 @@ export default async function Home() {
           <li key={post.id}>
             <Link
               href={`blog/${post.slug}`}
-              className="group block wrap-break-word py-6"
+              className="group block wrap-break-word py-6 border-b"
             >
               <div className="flex items-start justify-between gap-6">
                 <div className="grid grid-cols-1 gap-3">
